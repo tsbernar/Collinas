@@ -26,7 +26,7 @@ class MenuItemsController < ApplicationController
 
   def update
     if @menu_item.update(menu_item_params)
-      fredirect_to @menu_item, notice: 'Menu item was successfully updated.'
+      redirect_to @menu_item, notice: 'Menu item was successfully updated.'
     else
       render :edit 
     end

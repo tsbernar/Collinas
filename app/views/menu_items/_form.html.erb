@@ -14,31 +14,24 @@
     <%= f.label :name %>
     <%= f.text_field :name, autofocus: true, class: "form-control"%>  
   </div>
-  <div class="field form-group">
+  <div class="field form-group"> 
     <%= f.label :section %>
-    <select class="form-control">
-      <% @menu_sections = MenuSection.order("name DESC") %>
-      <% @menu_sections.each do |section| %>
-       <option value=<%= section.id %>> <%=section.name%> </option> 
-      <% end %>
-    </select> <% :menu_section_id %>
+    <%= f.select :section,  options_for_section, {} , prompt: 'Select One' , class: 'form-control' %>
   </div>
 
   <div class="field form-group">
     <%= f.label :description %>
     <%= f.text_area :description, class: "form-control"%>  
   </div>
+
   <div class="field form-group">
-    <%= f.label "#{:price} $" %>
-    <%=f.text_field :price, data: { role: 'money', a_sep: ',', a_dec: '.' } %>
+    <%= f.label "#{:price}" %>
+    $ <%=f.text_field :price, data: { role: 'money', a_sep: ',', a_dec: '.' } %>
   </div>
 
-  <div class="actions">
-  </div>
+  <div class="actions form-group">
     <%= f.submit "Add item", class: "btn btn-primary" %>
   </div>
   <% end %>
 
-  <div class="panel-footer">
-  <%= link_to 'Back', menu_items_path %>
-  </div>
+
