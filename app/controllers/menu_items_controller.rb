@@ -43,8 +43,10 @@ class MenuItemsController < ApplicationController
       @menu_item = MenuItem.find(params[:id])
     end
 
+  
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def menu_item_params
-      params[:menu_item]
+      params.require(:menu_item).permit(:id, :name, :description, :price, :menu_section_id)
     end
 end

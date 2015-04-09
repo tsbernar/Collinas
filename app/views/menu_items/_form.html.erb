@@ -15,15 +15,21 @@
     <%= f.text_field :name, autofocus: true, class: "form-control"%>  
   </div>
   <div class="field form-group">
-    <%= f.label :description %>
-    <%= f.text_field :description, class: "form-control"%>  
+    <%= f.label :section %>
+    <select class="form-control">
+      <% @menu_sections = MenuSection.order("name DESC") %>
+      <% @menu_sections.each do |section| %>
+       <option value=<%= section.id %>> <%=section.name%> </option> 
+      <% end %>
+    </select> <% :menu_section_id %>
   </div>
+
   <div class="field form-group">
     <%= f.label :description %>
-    <%= f.text_field :description, class: "form-control"%>  
+    <%= f.text_area :description, class: "form-control"%>  
   </div>
   <div class="field form-group">
-    <%= f.label :price %>
+    <%= f.label "#{:price} $" %>
     <%=f.text_field :price, data: { role: 'money', a_sep: ',', a_dec: '.' } %>
   </div>
 

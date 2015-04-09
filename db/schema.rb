@@ -11,15 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150409150015) do
+ActiveRecord::Schema.define(version: 20150409163806) do
 
   create_table "menu_items", force: :cascade do |t|
-    t.string   "name",                                 null: false
-    t.string   "description",                          null: false
-    t.decimal  "price",       precision: 10, scale: 2, null: false
-    t.string   "section",                              null: false
-    t.datetime "created_at",                           null: false
-    t.datetime "updated_at",                           null: false
+    t.string   "name",                                     null: false
+    t.string   "description",                              null: false
+    t.decimal  "price",           precision: 10, scale: 2, null: false
+    t.string   "section",                                  null: false
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
+    t.integer  "menu_section_id"
+  end
+
+  create_table "menu_sections", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
