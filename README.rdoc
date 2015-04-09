@@ -1,28 +1,14 @@
-== README
+Website for collinas in progress 
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Ideas:
+Multiple pages with pages controller
+Menu model and controller and index view 
+user model with admin attribute, (admin can add edith delete from menu)
+Menu items have attribue section (ex breakfast, lunch dinner) that admin user selects when adding new item, maybe check boxes for favorite, veggitarian, etc. 
+show view on menu item will maybe be rendered in a bootstrap pop up that lets you choose quantity and add to cart
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+cart has many cart items (separate model controller from menu item which are for display and show only.. on the menu item show page is the new page for cart item, makes new with attribute quantity price per and total price)
+menu item blongs to cart 
+cart index is sum of all menu items, 
+tax and or delivery fee is permanent cart item that is not removalble by user
+checkout page can get all info in an order model and send to store or to separate checkout payment software 
