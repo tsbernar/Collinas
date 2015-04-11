@@ -12,12 +12,15 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li><%= link_to "Menu", root_path %></li>
+        <li><%= link_to "Menu", menu_items_path %></li>
         <li><%= link_to "Locations", about_path %></li>
-        <li><%= link_to "Brand", root_path, class: "center-navbar"%></li>
-        <li><%= link_to "Order", root_path %></li>
-        <li><%=link_to "Contact", contact_us_path %></li>
+        <li><%= link_to "Collina's", root_path, class: "center-navbar"%></li>
+        <li><%= link_to "Order", menu_items_path %></li>
+        <li><%= link_to "Contact", contact_us_path %></li>
       </ul>
+      <ul class="nav navbar-nav pull-right">
+      <li><%= link_to "Cart <span class='badge'>2</span>".html_safe, "#" %></li>   ## fix this so its centered 
+    </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
