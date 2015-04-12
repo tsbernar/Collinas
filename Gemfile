@@ -33,6 +33,8 @@ gem 'bootstrap-sass'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+gem 'devise'
+
 group :production do
 	gem 'pg'
 	gem 'rails_12factor'

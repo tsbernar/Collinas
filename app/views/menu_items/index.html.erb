@@ -2,7 +2,7 @@
 
 <h1>Listing Menu Items</h1>
 
-<table class="table table-hover">
+<table class="table ">
   <thead>
     <tr>
       <th>Name</th>
@@ -13,15 +13,24 @@
   </thead>
 
   <tbody>
-    <% @menu_items.each do |menu_item| %>
-      <tr>
-        <td><%= menu_item.name%></td>
-        <td><%= menu_item.description%></td>
-        <td><%= menu_item.price%></td>
-        <td><%= link_to 'Show', menu_item %></td>
-        <td><%= link_to 'Edit', edit_menu_item_path(menu_item) %></td>
-        <td><%= link_to 'Destroy', menu_item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <% @menu_sections.each do |section_item| %>
+      <tr class="menu-heading warning">
+        <td colspan="6"><h4><%=section_item.name%></h4></td>
       </tr>
+      <% @menu_items.each do |menu_item| %>
+        <% if menu_item.section == section_item.name %>
+          <tr>
+            <td><%= menu_item.name%></td>
+            <td><%= menu_item.description%></td>
+            <td><%= menu_item.price%></td>
+            <% if user_signed_in? && @user.admin %>
+              <td><%= link_to 'Show', menu_item %></td>
+              <td><%= link_to 'Edit', edit_menu_item_path(menu_item) %></td>
+              <td><%= link_to 'Destroy', menu_item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <% end %>
+          </tr>
+        <% end %>
+      <% end %>
     <% end %>
   </tbody>
 </table>

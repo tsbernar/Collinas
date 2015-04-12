@@ -3,6 +3,8 @@ class MenuItemsController < ApplicationController
 
   def index
     @menu_items = MenuItem.all
+    @menu_sections = MenuSection.all
+    @user = current_user
   end
 
   def show
@@ -18,7 +20,7 @@ class MenuItemsController < ApplicationController
   def create
     @menu_item = MenuItem.new(menu_item_params)
     if @menu_item.save
-      redirect_to @menu_item, notice: 'Menu item was successfully created.'
+      redirect_to menu_items_path, notice: 'Menu item was successfully created.'
     else
       render :new 
     end
@@ -26,7 +28,7 @@ class MenuItemsController < ApplicationController
 
   def update
     if @menu_item.update(menu_item_params)
-      redirect_to @menu_item, notice: 'Menu item was successfully updated.'
+      redirect_to menu_items_path, notice: 'Menu item was successfully updated.'
     else
       render :edit 
     end

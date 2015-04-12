@@ -19,7 +19,16 @@
         <li><%= link_to "Contact", contact_us_path %></li>
       </ul>
       <ul class="nav navbar-nav pull-right">
-      <li><%= link_to "Cart <span class='badge'>2</span>".html_safe, "#" %></li>   ## fix this so its centered 
+      <% if user_signed_in? %> 
+        <% if current_user.admin %> 
+          <li> admin signed in</li>
+          <li> <%= link_to 'Log out', destroy_user_session_path, method: :delete %> </li> 
+        <% else %>
+          <li> signed in </li> 
+          <li> <%= link_to 'Log out', destroy_user_session_path, method: :delete %> </li>
+        <% end %>
+      <% end %>
+      <li><%= link_to "Cart <span class='badge'>2</span>".html_safe, "#" %></li>   <!-- fix this so its centered  -->
     </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->

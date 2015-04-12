@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   resources :menu_items
   resources :menu_items
   # The priority is based upon order of creation: first created -> highest priority.
