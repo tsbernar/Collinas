@@ -22,7 +22,7 @@
           <tr>
             <td><%= menu_item.name%></td>
             <td><%= menu_item.description%></td>
-            <td><%= menu_item.price%></td>
+            <td><%= number_to_currency(menu_item.price, :unit => "$")%></td>
             <% if user_signed_in? && @user.admin %>
               <td><%= link_to 'Show', menu_item %></td>
               <td><%= link_to 'Edit', edit_menu_item_path(menu_item) %></td>
