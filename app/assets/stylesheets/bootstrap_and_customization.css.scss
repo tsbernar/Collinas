@@ -11,15 +11,17 @@
         float: none;
         vertical-align: top;
     }
-
-.navbar .navbar-collapse {
-        text-align: center;
-    }
 }
 
 .panel-default {
   max-width: 500px;
   margin: 0 auto;
+}
+
+.cart {
+    position: absolute;
+    top: 0px;
+    right: 0px;
 }
 
 .center-navbar {

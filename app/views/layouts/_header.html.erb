@@ -12,9 +12,9 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
+        <li><%= link_to "Collina's", root_path, class: "center-navbar"%></li>
         <li><%= link_to "Menu", menu_items_path %></li>
         <li><%= link_to "Locations", about_path %></li>
-        <li><%= link_to "Collina's", root_path, class: "center-navbar"%></li>
         <li><%= link_to "Order", menu_items_path %></li>
         <li><%= link_to "Contact", contact_us_path %></li>
       </ul>
@@ -22,13 +22,14 @@
       <% if user_signed_in? %> 
         <% if current_user.admin %> 
           <li> admin signed in</li>
-          <li> <%= link_to 'Log out', destroy_user_session_path, method: :delete %> </li> 
         <% else %>
           <li> signed in </li> 
-          <li> <%= link_to 'Log out', destroy_user_session_path, method: :delete %> </li>
         <% end %>
+        <li><%= link_to 'Log out', destroy_user_session_path, method: :delete %></li> 
+      <% else %>
+        <li><%= link_to 'Sign in', new_user_session_path %></li>
       <% end %>
-      <li><%= link_to "Cart <span class='badge'>2</span>".html_safe, "#" %></li>   <!-- fix this so its centered  -->
+      <li><%= link_to 'Cart', "#" %></li>
     </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
