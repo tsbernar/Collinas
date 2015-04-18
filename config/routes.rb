@@ -3,7 +3,14 @@ Rails.application.routes.draw do
 
   resources :cart_items
   devise_for :users
-  resources :menu_items
+  resources :menu_items do
+    collection do
+      post :import
+    end
+  end
+
+  get "/upload" => "menu_items#upload"
+
   resources :cart, only: [:show] do
     put 'add/:menu_item_id', to: 'carts#add', as: :add_to
     put 'remove/menu_item_id', to: 'carts#remove', as: :remove_from

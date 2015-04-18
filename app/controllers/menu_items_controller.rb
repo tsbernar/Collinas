@@ -1,6 +1,14 @@
 class MenuItemsController < ApplicationController
   before_action :set_menu_item, only: [:show, :edit, :update, :destroy]
 
+  def upload
+  end
+
+  def import
+    count = MenuItem.import params[:file]
+    redirect_to menu_items_path, notice: "Imported #{count} items"
+  end
+  
   def index
     @menu_items = MenuItem.all
     @menu_sections = MenuSection.all
