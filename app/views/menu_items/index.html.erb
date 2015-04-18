@@ -1,4 +1,5 @@
-<p id="notice"><%= notice %></p>
+
+<%= link_to 'New Menu item', new_menu_item_path if current_user && @user.admin %>
 
 <h1>Listing Menu Items</h1>
 
@@ -24,9 +25,8 @@
             <td><%= menu_item.description%></td>
             <td><%= number_to_currency(menu_item.price, :unit => "$")%></td>
             <% if user_signed_in? && @user.admin %>
-              <td><%= link_to 'Show', menu_item %></td>
               <td><%= link_to 'Edit', edit_menu_item_path(menu_item) %></td>
-              <td><%= link_to 'Destroy', menu_item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              <td><%= link_to 'Delete', menu_item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
             <% end %>
           </tr>
         <% end %>
@@ -35,7 +35,4 @@
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Menu item', new_menu_item_path %>
 

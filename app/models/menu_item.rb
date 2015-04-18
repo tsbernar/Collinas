@@ -3,9 +3,9 @@ class MenuItem < ActiveRecord::Base
 
 	def self.to_csv
 		attributes = %w{id name description price section}
+		attributes << "hint: use #{section_names} for section"
 		CSV.generate(headers: true) do |csv|
 			csv << attributes
-
 			all.each do |menu_item|
 				csv << attributes.map{ |attr| menu_item[attr] }
 			end

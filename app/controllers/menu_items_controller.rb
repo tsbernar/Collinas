@@ -1,7 +1,12 @@
 class MenuItemsController < ApplicationController
   before_action :set_menu_item, only: [:show, :edit, :update, :destroy]
+  before_action :set_sections_for_upload_template, only: :upload
 
   def upload
+    respond_to do |format|
+      format.html
+      format.csv { send_data @sections.to_csv_template}
+    end
   end
 
   def import
@@ -18,9 +23,6 @@ class MenuItemsController < ApplicationController
       format.html
       format.csv { send_data @menu_items.to_csv }
     end
-  end
-
-  def show
   end
 
   def new
@@ -58,9 +60,13 @@ class MenuItemsController < ApplicationController
       @menu_item = MenuItem.find(params[:id])
     end
 
+    def set_sections_for_upload_template
+      @sections = MenuSection.all
+    end
   
 
     # Never trust parameters from the scary internet, only allow the white list through.
+    
     def menu_item_params
       params.require(:menu_item).permit(:id, :name, :description, :price, :section, :menu_section_id)
     end
