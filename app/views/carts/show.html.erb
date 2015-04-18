@@ -1,2 +1,9 @@
 <h1>Carts#show</h1>
 <p>Find me in app/views/carts/show.html.erb</p>
+cart id: <%= @cart.id %>
+<% @cart_items = @cart.cart_items %>
+<%= @cart_items.each do |item| %>
+	<p><%= item.id %></p>
+	<p><%= item.name %></p>
+	<p><%= item.cart_id %></p>
+<% end %>

@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   get 'carts/show'
 
   resources :cart_items
+  resources :carts
   devise_for :users
   resources :menu_items do
     collection do
@@ -11,10 +12,6 @@ Rails.application.routes.draw do
 
   get "/upload" => "menu_items#upload"
 
-  resources :cart, only: [:show] do
-    put 'add/:menu_item_id', to: 'carts#add', as: :add_to
-    put 'remove/menu_item_id', to: 'carts#remove', as: :remove_from
-  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
