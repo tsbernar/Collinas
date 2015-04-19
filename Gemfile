@@ -35,6 +35,8 @@ gem 'bootstrap-sass'
 
 gem 'devise'
 gem 'font-awesome-sass'
+gem 'puma'
+gem 'foreman'
 
 group :production do
 	gem 'pg'
