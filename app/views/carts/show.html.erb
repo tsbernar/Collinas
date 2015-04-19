@@ -23,15 +23,16 @@
 				<td><%= item.menu_item_id %></td>
 				<td><%= menu_item.name %></td>
 				<td>
-					<%= link_to icon('minus-square' , class: "fa-lg add_subtract_buttons") , "#" , class: "no-hover hvr-grow" %> 
+					<%= link_to icon('minus-square' , class: "fa-lg add_subtract_buttons"), decrease_qty_path(:cart_item_id => item.id), :method => :post  , class: "no-hover hvr-grow"  %> 
 					<%= item.qty %> 
-					<%= link_to icon('plus-square' , class: "fa-lg add_subtract_buttons") , "#" , class: "no-hover hvr-grow" %>
+					<%= link_to icon('plus-square' , class: "fa-lg add_subtract_buttons"), increase_qty_path(:cart_item_id => item.id), :method => :post , class: "no-hover hvr-grow" %>
 				</td>
 				<td><%= number_to_currency(menu_item.price, unit: '$') %></td>
 			</tr>
 		<% end %>
 	</tbody>
 </table>
+
 
 <%= icon('minus-square' , class: "fa-lg add_subtract_buttons")%>
 <%= icon('plus-square' , class: "fa-lg add_subtract_buttons")%>

@@ -12,6 +12,20 @@ class CartItemsController < ApplicationController
     redirect_to carts_show_path, notice: 'Added to cart'
   end
 
+  def increase_qty
+    @cart_item = CartItem.find(params[:cart_item_id])
+    @cart_item.qty += 1 
+    @cart_item.save
+    redirect_to carts_show_path
+  end
+
+  def decrease_qty
+    @cart_item = CartItem.find(params[:cart_item_id])
+    @cart_item.qty -= 1 
+    @cart_item.save
+    redirect_to carts_show_path
+  end
+
   def current_cart
     Cart.find(session[:cart_id])
     rescue ActiveRecord::RecordNotFound
