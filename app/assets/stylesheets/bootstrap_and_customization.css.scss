@@ -5,11 +5,41 @@
 	margin: 0 auto;
 }
 
+.hvr-grow {
+    display: inline-block;
+    vertical-align: middle;
+    transform: translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    backface-visibility: hidden;
+    -moz-osx-font-smoothing: grayscale;
+    transition-duration: 0.3s;
+    transition-property: transform;
+}
+
+.hvr-grow:hover,
+.hvr-grow:focus,
+.hvr-grow:active {
+    transform: scale(1.1);
+}
+
 @media (min-width: 768px) {
     .navbar .navbar-nav {
         display: inline-block;
         float: none;
         vertical-align: top;
+    }
+}
+
+.add_subtract_buttons {
+    color:#3498db;
+    &:hover {
+        color:#3498db;
+    }
+}
+
+.no-hover {
+    &:hover {
+        background-color: transparent;
     }
 }
 

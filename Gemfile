@@ -34,6 +34,9 @@ gem 'bootstrap-sass'
 # gem 'capistrano-rails', group: :development
 
 gem 'devise'
+gem 'font-awesome-sass'
+gem 'entangled' ## for real time
+gem 'puma'
 
 group :production do
 	gem 'pg'

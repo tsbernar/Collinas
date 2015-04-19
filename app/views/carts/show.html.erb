@@ -1,6 +1,6 @@
 <h1>Cart</h1>
-cart id: <%= @cart.id %>
-<% @cart_items = @cart.cart_items %>
+<p>cart id: <%= @cart.id %></p>
+<% cart_items = @cart.cart_items %>
 <table class="table">
 	<thead>
 		<tr>
@@ -14,7 +14,7 @@ cart id: <%= @cart.id %>
 		</tr>
 	</thead>
 	<tbody>
-		<%= @cart_items.each do |item| %>
+		<% cart_items.each do |item| %>
 			<tr>
 				<td><%= item.id %></td>
 				<td><%= item.name %></td>
@@ -22,10 +22,16 @@ cart id: <%= @cart.id %>
 				<% menu_item = MenuItem.find(item.menu_item_id) %>
 				<td><%= item.menu_item_id %></td>
 				<td><%= menu_item.name %></td>
-				<td><%= item.qty %></td>
+				<td>
+					<%= link_to icon('minus-square' , class: "fa-lg add_subtract_buttons") , "#" , class: "no-hover hvr-grow" %> 
+					<%= item.qty %> 
+					<%= link_to icon('plus-square' , class: "fa-lg add_subtract_buttons") , "#" , class: "no-hover hvr-grow" %>
+				</td>
 				<td><%= number_to_currency(menu_item.price, unit: '$') %></td>
 			</tr>
 		<% end %>
 	</tbody>
 </table>
 
+<%= icon('minus-square' , class: "fa-lg add_subtract_buttons")%>
+<%= icon('plus-square' , class: "fa-lg add_subtract_buttons")%>
