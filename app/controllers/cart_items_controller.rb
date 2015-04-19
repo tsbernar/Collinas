@@ -1,10 +1,23 @@
 class CartItemsController < ApplicationController
   before_action :set_cart_item, only: [:show, :edit, :update, :destroy]
-
   # GET /cart_items
   # GET /cart_items.json
   def index
     @cart_items = CartItem.all
+  end
+
+  def add_to_cart
+    @cart = current_cart
+    @cart.add_item(params[:menu_item_id],@cart)
+    redirect_to carts_show_path, notice: 'Added to cart'
+  end
+
+  def current_cart
+    Cart.find(session[:cart_id])
+    rescue ActiveRecord::RecordNotFound
+      cart = Cart.create
+      session[:cart_id] = cart.id
+      cart
   end
 
   # GET /cart_items/1
@@ -24,16 +37,10 @@ class CartItemsController < ApplicationController
   # POST /cart_items
   # POST /cart_items.json
   def create
-    @cart_item = CartItem.new(cart_item_params)
-
-    respond_to do |format|
-      if @cart_item.save
-        format.html { redirect_to @cart_item, notice: 'Cart item was successfully created.' }
-        format.json { render :show, status: :created, location: @cart_item }
-      else
-        format.html { render :new }
-        format.json { render json: @cart_item.errors, status: :unprocessable_entity }
-      end
+    if @menu_item.add_to_cart
+      redirect_to menu_items_path, notice: 'Added to cart'
+    else
+      redirect_to menu_items_path, notice: 'not added to cart'
     end
   end
 

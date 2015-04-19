@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   get 'carts/show'
 
+  post '/add_to_cart/:menu_item_id' => 'carts#add_to_cart', :as => 'add_to_cart'
+
+
   resources :cart_items
   resources :carts
   devise_for :users

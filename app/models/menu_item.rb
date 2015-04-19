@@ -12,6 +12,15 @@ class MenuItem < ActiveRecord::Base
 		end
 	end
 
+	def self.add_to_cart
+		@cart_item = CartItem.new
+		@cart_item.name = self.name
+		@cart_item.description = self.description
+		@cart_item.price = self.price
+		@cart_item.qty = 1
+		@cart_item.cart_id = current_cart.id
+	end
+
 	def self.import(file)
 		counter = 0
 		CSV.foreach(file.path, headers: true, header_converters: :symbol) do |row|

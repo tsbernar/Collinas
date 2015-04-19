@@ -1,11 +1,19 @@
 class MenuItemsController < ApplicationController
-  before_action :set_menu_item, only: [:show, :edit, :update, :destroy]
+  before_action :set_menu_item, only: [:show, :edit, :update, :destroy, :add]
   before_action :set_sections_for_upload_template, only: :upload
 
   def upload
     respond_to do |format|
       format.html
       format.csv { send_data @sections.to_csv_template}
+    end
+  end
+
+  def add
+    if @menu_item.add_to_cart
+      redirect_to menu_items_path, notice: 'Added to cart'
+    else
+      render :new, notice: 'not added to cart'
     end
   end
 
@@ -27,6 +35,9 @@ class MenuItemsController < ApplicationController
 
   def new
     @menu_item = MenuItem.new
+  end
+
+  def show
   end
 
   def edit
