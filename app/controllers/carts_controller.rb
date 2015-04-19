@@ -7,8 +7,8 @@ class CartsController < ApplicationController
 
 	def add_to_cart
 		@cart = current_cart
-	  @cart.add_item(params[:menu_item_id],@cart)
-	  redirect_to carts_show_path, notice: 'Added to cart'
+	  @cart.add_item(params[:menu_item_id])
+	  redirect_to menu_items_path, notice: 'Added to cart'
 	end
 
 	def current_cart

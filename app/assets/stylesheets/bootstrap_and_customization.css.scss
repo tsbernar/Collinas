@@ -5,6 +5,8 @@
 	margin: 0 auto;
 }
 
+
+// used for growing buttons on cart page + and - 
 .hvr-grow {
     display: inline-block;
     vertical-align: middle;
@@ -15,7 +17,6 @@
     transition-duration: 0.3s;
     transition-property: transform;
 }
-
 .hvr-grow:hover,
 .hvr-grow:focus,
 .hvr-grow:active {

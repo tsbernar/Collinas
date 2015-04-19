@@ -19,17 +19,24 @@
         <li><%= link_to "Contact", contact_us_path %></li>
       </ul>
       <ul class="nav navbar-nav pull-right">
+
       <% if user_signed_in? %> 
         <% if current_user.admin %> 
           <li> admin signed in</li>
-        <% else %>
-          <li> signed in </li> 
         <% end %>
         <li><%= link_to 'Log out', destroy_user_session_path, method: :delete %></li> 
       <% else %>
         <li><%= link_to 'Sign in', new_user_session_path %></li>
       <% end %>
-      <li><%= link_to 'Cart', "#" %></li>
+
+      <li>
+        <%= link_to cart_path do %>
+          Cart
+          <% if current_cart.size > 0 %>
+            <%= content_tag("span", current_cart.size, class: "badge") %>
+          <% end %>
+        <% end %>
+      </li>
     </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->

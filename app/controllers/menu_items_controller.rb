@@ -26,7 +26,7 @@ class MenuItemsController < ApplicationController
     @menu_items = MenuItem.all
     @menu_sections = MenuSection.all
     @user = current_user
-
+    @cart = current_cart
     respond_to do |format|
       format.html
       format.csv { send_data @menu_items.to_csv }

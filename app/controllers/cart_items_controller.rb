@@ -9,21 +9,26 @@ class CartItemsController < ApplicationController
   def add_to_cart
     @cart = current_cart
     @cart.add_item(params[:menu_item_id],@cart)
-    redirect_to carts_show_path, notice: 'Added to cart'
+    redirect_to cart_path, notice: 'Added to cart'
   end
 
   def increase_qty
     @cart_item = CartItem.find(params[:cart_item_id])
     @cart_item.qty += 1 
     @cart_item.save
-    redirect_to carts_show_path
+    redirect_to cart_path
   end
 
   def decrease_qty
     @cart_item = CartItem.find(params[:cart_item_id])
-    @cart_item.qty -= 1 
-    @cart_item.save
-    redirect_to carts_show_path
+    if @cart_item.qty > 1
+      @cart_item.qty -= 1 
+      @cart_item.save
+      redirect_to cart_path
+    else
+      @cart_item.destroy
+      redirect_to cart_path
+    end
   end
 
   def current_cart
@@ -75,11 +80,7 @@ class CartItemsController < ApplicationController
   # DELETE /cart_items/1
   # DELETE /cart_items/1.json
   def destroy
-    @cart_item.destroy
-    respond_to do |format|
-      format.html { redirect_to cart_items_url, notice: 'Cart item was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+
   end
 
   private

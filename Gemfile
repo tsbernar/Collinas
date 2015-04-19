@@ -35,8 +35,6 @@ gem 'bootstrap-sass'
 
 gem 'devise'
 gem 'font-awesome-sass'
-gem 'entangled' ## for real time
-gem 'puma'
 
 group :production do
 	gem 'pg'
