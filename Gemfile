@@ -37,6 +37,7 @@ gem 'devise'
 gem 'font-awesome-sass'
 gem 'puma'
 gem 'foreman'
+gem 'braintree-rails', '~> 1.4.0'
 
 group :production do
 	gem 'pg'

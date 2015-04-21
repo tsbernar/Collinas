@@ -9,14 +9,6 @@ class MenuItemsController < ApplicationController
     end
   end
 
-  def add
-    if @menu_item.add_to_cart
-      redirect_to menu_items_path, notice: 'Added to cart'
-    else
-      render :new, notice: 'not added to cart'
-    end
-  end
-
   def import
     count = MenuItem.import params[:file]
     redirect_to menu_items_path, notice: "Imported #{count} items"
@@ -62,7 +54,7 @@ class MenuItemsController < ApplicationController
 
   def destroy
     @menu_item.destroy
-      redirect_to menu_items_url, notice: 'Menu item was successfully destroyed.'
+      redirect_to menu_items_url, notice: 'Menu item was successfully deleted.'
   end
 
   private
@@ -74,8 +66,6 @@ class MenuItemsController < ApplicationController
     def set_sections_for_upload_template
       @sections = MenuSection.all
     end
-  
-
     # Never trust parameters from the scary internet, only allow the white list through.
     
     def menu_item_params

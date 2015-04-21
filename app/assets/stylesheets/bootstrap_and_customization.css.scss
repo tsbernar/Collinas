@@ -2,9 +2,8 @@
 
 $body-bg:                    #ecf0f1;
 $font-family-sans-serif:      'Lato', "Helvetica Neue", Helvetica, Arial, sans-serif;
-
 $navbar-height:                 45px;
-$input-border-focus:          gray;
+$input-border-focus:            gray;
 
 
 @import 'bootstrap';
@@ -21,7 +20,6 @@ $input-border-focus:          gray;
     vertical-align: middle;
     transform: translateZ(0);
     box-shadow: 0 0 1px rgba(0, 0, 0, 0);
-    backface-visibility: hidden;
     -moz-osx-font-smoothing: grayscale;
     transition-duration: 0.3s;
     transition-property: transform;

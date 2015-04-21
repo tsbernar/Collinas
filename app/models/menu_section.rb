@@ -9,7 +9,7 @@ has_many :menu_items
 				sections << section.name
 			end
 			headers << " "
-			headers << "Hint: Use the following for 'section:' #{sections}. "
+			headers << "Hint: Save as .csv and Use the following for 'section:' #{sections}. "
 			csv << headers
 		end
 	end
