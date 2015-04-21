@@ -14,4 +14,5 @@
 //= require autoNumeric
 //= require jquery_ujs
 //= require turbolinks
+//= require braintree
 //= require_tree .

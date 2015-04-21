@@ -192,6 +192,7 @@ PLATFORMS
 
 DEPENDENCIES
   bootstrap-sass
+  braintree
   braintree-rails (~> 1.4.0)
   byebug
   coffee-rails (~> 4.1.0)
