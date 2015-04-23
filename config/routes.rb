@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   post '/decrease_qty/:cart_item_id' => 'cart_items#decrease_qty', :as => 'decrease_qty'
 
   resources :orders
-  get '/checkout' => 'orders#new', as: :checout
+  get '/checkout' => 'orders#new', as: :checkout
 
   resources :cart_items
   devise_for :users

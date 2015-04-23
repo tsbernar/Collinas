@@ -1,3 +1,43 @@
 <div class="center jumbotron">
 	<h1>Home</h1>
+
+<script>  
+  function setupBT() {
+    braintree.setup("<%=@client_token%>", 'dropin', {
+      container: 'dropin'
+    });
+  }
+  if (window.addEventListener)
+    window.addEventListener("load", setupBT, false);
+  else if (window.attachEvent)
+    window.attachEvent("onload", setupBT);
+  else window.onload = setupBT;
+
+jQuery(document).ready(function($) {
+      $('a[rel*=facebox]').facebox()
+    })
+</script>
+
+<label for="name">Name: <a href="#checkout" rel="facebox">?</a></label>
+<input type="text" name="name" ... />
+<div id="name-help" style="display: none;">
+  <p>This is the help text for <strong>name</strong></p>
+  <p>You can put any html here</p>.
+</div>
+
+
+<%= link_to "Popup link", "#checkout" , class: "popup" , rel: "facebox" %>
+
+
+<div id="checkout", display:none>
+	<%= form_tag orders_path, method: "post" do %>
+  	<div id="dropin"></div>
+  	<p> test</p>
+  	<div class="actions form-group">
+    <input type="submit" value="Submit" class="btn btn-primary" >
+  	</div>
+	<% end %>
+<div>
+
+
 </div>

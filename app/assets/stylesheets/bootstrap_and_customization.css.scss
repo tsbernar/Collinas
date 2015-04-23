@@ -8,6 +8,11 @@ $input-border-focus:            gray;
 
 @import 'bootstrap';
 
+// hides checkout div to use with facebox
+#checkout {
+    display: none;
+}
+
 // padding for braintree payment form 
 .payment-form-padding {
     padding: 20px;

@@ -3,6 +3,7 @@ class CartsController < ApplicationController
 
   def show
   	@cart = current_cart
+  	@client_token = Braintree::ClientToken.generate
   end
 
 	def add_to_cart
