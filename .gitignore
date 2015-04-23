@@ -17,5 +17,7 @@
 /tmp
 .env
 
+
 # Ignore application configuration
 /config/application.yml
+/config/braintree_for_development.rb
