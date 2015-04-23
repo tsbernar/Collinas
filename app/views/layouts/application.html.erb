@@ -6,13 +6,8 @@
   <%= stylesheet_link_tag "//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" , rel: 'stylesheet'%>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
-  <script>
-		jQuery(document).ready(function($) {
-    	$('a[rel*=facebox]').facebox()
-  	})
 
-    $(document).on 'page:change', -> $.facebox.settings.inited = false
-	</script>
+
 </head>
 <body>
 
@@ -22,6 +17,7 @@
   	<%= content_tag(:div, msg, class: "alert alert-info") %>
   <% end %>
 	<%= yield %>
+
 </div>
 
 </body>

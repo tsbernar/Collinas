@@ -1,3 +1,9 @@
+ <script>
+		jQuery(document).ready(function($) {
+    	$('a[rel*=facebox]').facebox()
+  	})
+	</script>
+
 <h1>Cart</h1>
 <p>cart id: <%= @cart.id %></p>
 <% cart_items = @cart.cart_items %>
@@ -36,12 +42,12 @@
 <p> sub total: <%= @cart.subtotal %> </p>
 
 <% if current_cart.cart_items != nil && current_cart.cart_items.length > 0 %>
-  <%= link_to "Checkout", '#checkout' , rel:"facebox" %>
-  <p><a href="#checkout" rel="facebox">Checkout</a></p>
+  <%= link_to "Checkout", '#checkout' , rel:"facebox"  %>
 <% end %>
 
+</div>
 
-<div id='checkout' , class="panel panel-default">
+<div id="checkout", class="panel panel-default">
 	<div class="panel-heading">
 		<h1>Checkout</h1>
 	</div>

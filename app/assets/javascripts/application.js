@@ -13,7 +13,7 @@
 //= require jquery
 //= require autoNumeric
 //= require jquery_ujs
+//= require jquery.turbolinks
 //= require turbolinks
-//= require jquery.facebox
 //= require braintree
 //= require_tree .
