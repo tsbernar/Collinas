@@ -10,6 +10,8 @@
 		jQuery(document).ready(function($) {
     	$('a[rel*=facebox]').facebox()
   	})
+
+    $(document).on 'page:change', -> $.facebox.settings.inited = false
 	</script>
 </head>
 <body>

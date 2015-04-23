@@ -17,5 +17,3 @@
 //= require jquery.facebox
 //= require braintree
 //= require_tree .
-
-$(document).on 'page:change', -> $.facebox.settings.inited = false
