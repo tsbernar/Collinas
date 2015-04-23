@@ -39,6 +39,7 @@ gem 'puma'
 gem 'foreman'
 gem 'braintree'
 gem 'braintree-rails', '~> 1.4.0'
+gem 'facebox-rails'
 
 group :production do
 	gem 'pg'

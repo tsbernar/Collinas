@@ -14,5 +14,8 @@
 //= require autoNumeric
 //= require jquery_ujs
 //= require turbolinks
+//= require jquery.facebox
 //= require braintree
 //= require_tree .
+
+$(document).on 'page:change', -> $.facebox.settings.inited = false

@@ -37,7 +37,9 @@
 
 <% if current_cart.cart_items != nil && current_cart.cart_items.length > 0 %>
   <%= link_to "Checkout", '#checkout' , rel:"facebox" %>
+  <p><a href="#checkout" rel="facebox">Checkout</a></p>
 <% end %>
+
 
 <div id='checkout' , class="panel panel-default">
 	<div class="panel-heading">
