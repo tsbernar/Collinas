@@ -1,8 +1,13 @@
- <script>
-		jQuery(document).ready(function($) {
-    	$('a[rel*=facebox]').facebox()
-  	})
-	</script>
+<!-- hidden checkout page to popup with facebox -->
+<div id="checkout", class="panel panel-default">
+		<%= render 'payment/form' %>
+</div>
+
+<script>
+	jQuery(document).ready(function($) {
+   	$('a[rel*=facebox]').facebox()
+  })
+</script>
 
 <h1>Cart</h1>
 <p>cart id: <%= @cart.id %></p>
@@ -45,18 +50,4 @@
   <%= link_to "Checkout", '#checkout' , rel:"facebox"  %>
 <% end %>
 
-</div>
 
-<div id="checkout", class="panel panel-default">
-	<div class="panel-heading">
-		<h1>Checkout</h1>
-	</div>
-	<div class-"panel-body">
-		<div class="payment-form-padding">
-		<%= render 'payment/form' %>
-		</div>
-	</div>
-	<div class="panel-footer">
-		<%= link_to "Edit your order", cart_path %>
-	</div>
-</div>
