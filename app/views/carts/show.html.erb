@@ -1,6 +1,20 @@
 <!-- hidden checkout page to popup with facebox -->
-<div id="checkout", class="panel panel-default">
+
+<div id="checkout" >
+	<iframe src="orders/new" allowtransparency="true" height="495" width="100%" style="transition: height 210ms cubic-bezier(0.39, 0.575, 0.565, 1); -webkit-transition: height 210ms cubic-bezier(0.39, 0.575, 0.565, 1); border: 0px; z-index: 9999;" scrolling="no" frameborder="0"></iframe>
+</div>
+
+<div id="checkout" class="panel panel-default">
+		<div class="panel panel-default">
+	<div class="panel-heading">
+		<h1>Checkout</h1>
+	</div>
+	<div class-"panel-body">
+		<div class="payment-form-padding">
 		<%= render 'payment/form' %>
+		</div>
+	</div>
+</div>
 </div>
 
 <script>
@@ -44,7 +58,9 @@
 	</tbody>
 </table>
 
-<p> sub total: <%= @cart.subtotal %> </p>
+<p> sub total: <%= number_to_currency(@cart.subtotal, unit: '$') %> </p>
+<p> tax: <%= number_to_currency(@cart.tax, unit: '$') %> </p>
+<p> total: <%= number_to_currency(@cart.total, unit: '$') %> </p>
 
 <% if current_cart.cart_items != nil && current_cart.cart_items.length > 0 %>
   <%= link_to "Checkout", '#checkout' , rel:"facebox"  %>

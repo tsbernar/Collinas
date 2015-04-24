@@ -1,28 +1,8 @@
-
-  <div class="panel-heading">
-    <h1>Checkout</h1>
+<%= form_tag orders_path, method: "post" do %>
+  <div id="dropin"></div>
+  <div class="actions form-group">
+    <input type="submit" value="Submit" class="btn btn-primary" >
   </div>
-  <div class-"panel-body">
-    <div class="payment-form-padding">
-      <%= form_tag orders_path, method: "post" do %>
-        <div id="dropin"></div>
-        <div class="actions form-group">
-          <input type="submit" value="Submit" class="btn btn-primary" >
-        </div>
-      <% end %>
-    </div>
-  </div>
+<% end %>
 
 
-<script type="text/javascript">
-  function setupBT() {
-    braintree.setup("<%=@client_token%>", 'dropin', {
-      container: 'dropin'
-    });
-  }
-  if (window.addEventListener)
-    window.addEventListener("load", setupBT, false);
-  else if (window.attachEvent)
-    window.attachEvent("onload", setupBT);
-  else window.onload = setupBT;
-</script>

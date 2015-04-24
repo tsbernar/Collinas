@@ -2,6 +2,8 @@ class OrdersController < ApplicationController
 
 	def new
 		@client_token = Braintree::ClientToken.generate
+		@cart = current_cart
+		render :layout => 'checkoutlayout'
 	end
 
 
@@ -15,8 +17,11 @@ class OrdersController < ApplicationController
 
 	  flash[:notice] = "Transaction successful!" if result.success?
 	  flash[:alert] = "#{result.transaction.processor_response_text}" unless result.success?
-	  redirect_to action: :new
+	  redirect_to order_path
 	end
 
+	def show
+		render :layout => 'checkoutlayout'
+	end
 
 end

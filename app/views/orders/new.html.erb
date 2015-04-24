@@ -1,15 +1,26 @@
-<%= link_to "Checkout", '#checkout' , rel:"facebox" %>
 
-<div id='checkout' , class="panel panel-default">
-	<div class="panel-heading">
-		<h1>Checkout</h1>
-	</div>
-	<div class-"panel-body">
-		<div class="payment-form-padding">
-		<%= render 'payment/form' %>
-		</div>
-	</div>
-	<div class="panel-footer">
-		<%= link_to "Edit your order", cart_path %>
-	</div>
+<script type="text/javascript">
+
+  function setupBT() {
+    braintree.setup("<%=@client_token%>", 'dropin', {
+      container: 'dropin'
+    });
+  }
+  if (window.addEventListener)
+    window.addEventListener("load", setupBT, false);
+  else if (window.attachEvent)
+    window.attachEvent("onload", setupBT);
+  else window.onload = setupBT;
+</script>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h1>Checkout</h1>
+  </div>
+  <div class-"panel-body">
+    <div class="payment-form-padding">
+    <%= render 'payment/form' %>
+    </div>
+  </div>
 </div>
+
