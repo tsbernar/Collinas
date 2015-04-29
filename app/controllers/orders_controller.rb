@@ -1,6 +1,7 @@
 class OrdersController < ApplicationController
 
 	def new
+		@order = Order.new
 		@client_token = Braintree::ClientToken.generate
 		@cart = current_cart
 		render :layout => 'checkoutlayout'
@@ -8,8 +9,9 @@ class OrdersController < ApplicationController
 
 
 	def create
+		@order.total = current_cart.total.truncate(2).to_s
 	  nonce = params[:payment_method_nonce]
-	  amount = current_cart.total.truncate(2).to_s
+	  amount = @order.total
 	  render action: :new and return unless nonce
 	  result = Braintree::Transaction.sale(
 	    amount: amount,
@@ -19,6 +21,10 @@ class OrdersController < ApplicationController
 	  flash[:notice] = "Transaction successful!" if result.success?
 	  flash[:alert] = "#{result.transaction.processor_response_text}" unless result.success?
 	  redirect_to root_path
+	end
+
+	def order_info
+		@order = Order.new
 	end
 
 	def show
