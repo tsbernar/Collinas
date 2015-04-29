@@ -1,35 +1,32 @@
-<p>your order!</p>
-<%= form_for(@order) do |f| %>
-  <% if @order.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@order.errors.count, "error") %> prohibited this order from being saved:</h2>
+<h1>your order!</h1>
+<p> Order ID: <%= @order.id %> </p>
+<p> Order Time: <%= @order.created_at.strftime("%l:%M%p %m/%d/%Y") %> </p>
+<p> allow 15 minutes for pick up </p>
+<p> Order Total: <%= number_to_currency(@order.total, unit: '$') %> </p>
+<p> Cart completetion <%= @order.cart.completed %> </p>
+<% cart = @order.cart %>
+<% cart_items = cart.cart_items %>
+<p> Cart ID <%= cart.id %> </p>
 
-      <ul>
-      <% @order.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-  <div class="field form-group">
-    <%= f.label :name %><br>
-    <%= f.text_field :name, autofocus: true, class: "form-control"%>  
-  </div>
-
-  <div class="field form-group">
-    <%= f.radio_button :delivery?, 'Delivery' , :checked => true %> 
-    <%= f.label :delivery, 'Delivery' , :value => true %>
-    <%= f.radio_button :delivery?, false %>
-    <%= f.label :delivery_false, 'Takeout' , :value => true %>
-  </div>
-
-  <div class="field form-group">
-    <%= f.label :address %>
-    <%= f.text_area :address, class: "form-control"%>  
-  </div>
+<p> Cart Items: </p>
 
 
-  <div class="actions form-group">
-    <%= f.submit "Add item", class: "btn btn-primary" %>
-  </div>
-  <% end %>
+<table class="table">
+  <thead>
+    <tr>
+      <th> Name </th>
+      <th> Qty </th>
+      <th> Price </th>
+    </tr>
+  </thead>
+  <tbody>
+    <% cart_items.each do |item| %>
+      <tr>
+        <% menu_item = MenuItem.find(item.menu_item_id) %>
+        <td><%= menu_item.name %></td>
+        <td><%= item.qty %></td>
+        <td><%= number_to_currency(menu_item.price, unit: '$') %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

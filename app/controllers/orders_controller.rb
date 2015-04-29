@@ -1,4 +1,5 @@
 class OrdersController < ApplicationController
+	before_action :set_order, only: [:show]
 
 	def new
 		@order = Order.new
@@ -11,6 +12,7 @@ class OrdersController < ApplicationController
 	def create
 		@order = Order.new
 		@order.total = current_cart.total.truncate(2).to_s
+		@order.cart_id = current_cart.id
 	  nonce = params[:payment_method_nonce]
 	  amount = @order.total
 	  render action: :new and return unless nonce
@@ -18,18 +20,33 @@ class OrdersController < ApplicationController
 	    amount: amount,
 	    payment_method_nonce: nonce	  
 	  )
-
+	  @order.save
 	  flash[:notice] = "Transaction successful!" if result.success?
 	  flash[:alert] = "#{result.transaction.processor_response_text}" unless result.success?
-	  redirect_to root_path
+	  if result.success?
+	  	current_cart.completed = true
+	  	cart = Cart.create
+	    session[:cart_id] = cart.id
+	  	redirect_to @order
+	  end
 	end
 
 	def order_info
 		@order = Order.new
+		render :layout => 'checkoutlayout'
 	end
 
 	def show
-		render :layout => 'checkoutlayout'
 	end
+
+	private
+
+		def set_order
+      @order = Order.find(params[:id])
+    end
+
+		def order_params
+      params.require(:order).permit(:id, :total, :tax, :subtotal, :cart_id, :name, :delivery?, :phone_number, :address, :zip)
+    end
 
 end

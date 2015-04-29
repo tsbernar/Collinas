@@ -1,6 +1,6 @@
 class Cart < ActiveRecord::Base
 	has_many :cart_items
-	belongs_to :order
+	has_one :order
 
 	def add_item(menu_item_id)
 		cart_item = CartItem.where('cart_id = ?', self.id).where('menu_item_id = ?', menu_item_id).first 
