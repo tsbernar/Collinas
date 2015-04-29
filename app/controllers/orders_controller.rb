@@ -9,6 +9,7 @@ class OrdersController < ApplicationController
 
 
 	def create
+		@order = Order.new
 		@order.total = current_cart.total.truncate(2).to_s
 	  nonce = params[:payment_method_nonce]
 	  amount = @order.total
