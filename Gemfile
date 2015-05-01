@@ -39,6 +39,7 @@ gem 'puma'
 gem 'foreman'
 gem 'braintree'
 gem 'braintree-rails', '~> 1.4.0'
+gem 'receipts'
 
 group :production do
 	gem 'pg'

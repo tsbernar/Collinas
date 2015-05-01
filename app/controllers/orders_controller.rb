@@ -37,6 +37,17 @@ class OrdersController < ApplicationController
 	end
 
 	def show
+		respond_to do |format|
+			format.html
+			format.json
+			format.pdf { 
+				send_data(@order.receipt.render, 
+									filename: "#{@order.created_at.strftime('%Y-%m-%d')}-order-#{@order.id}-receipt.pdf" ,
+									type: "application/pdf",
+									disposition: :inline
+									)
+			}
+		end
 	end
 
 	private
