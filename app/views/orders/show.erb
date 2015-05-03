@@ -1,32 +1,34 @@
-<h1>your order!</h1>
-<p> Order ID: <%= @order.id %> </p>
-<p> Order Time: <%= @order.created_at.strftime("%l:%M%p %m/%d/%Y") %> </p>
-<p> allow 15 minutes for pick up </p>
-<p> Order Total: <%= number_to_currency(@order.total, unit: '$') %> </p>
-<p> Cart completetion <%= @order.cart.completed %> </p>
-<% cart = @order.cart %>
-<% cart_items = cart.cart_items %>
-<p> Cart ID <%= cart.id %> </p>
+<div class="jumbotron">
+  <h1>Order Submitted!</h1>
+  <p> Order ID: <%= @order.id %> </p>
+  <p> Order Time: <%= @order.created_at.strftime("%l:%M%P %m/%d/%Y") %> </p>
+  <p> allow 15 minutes for pick up </p>
+  <p> Order Total: <%= number_to_currency(@order.total, unit: '$') %> </p>
+  <p> Cart completetion <%= @order.cart.completed %> </p>
+  <% cart = @order.cart %>
+  <% cart_items = cart.cart_items %>
+  <p> Cart ID <%= cart.id %> </p>
 
-<p> Cart Items: </p>
+  <p> Cart Items: </p>
 
 
-<table class="table">
-  <thead>
-    <tr>
-      <th> Name </th>
-      <th> Qty </th>
-      <th> Price </th>
-    </tr>
-  </thead>
-  <tbody>
-    <% cart_items.each do |item| %>
+  <table class="table">
+    <thead>
       <tr>
-        <% menu_item = MenuItem.find(item.menu_item_id) %>
-        <td><%= menu_item.name %></td>
-        <td><%= item.qty %></td>
-        <td><%= number_to_currency(menu_item.price, unit: '$') %></td>
+        <th> Name </th>
+        <th> Qty </th>
+        <th> Price </th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      <% cart_items.each do |item| %>
+        <tr>
+          <% menu_item = MenuItem.find(item.menu_item_id) %>
+          <td><%= menu_item.name %></td>
+          <td><%= item.qty %></td>
+          <td><%= number_to_currency(menu_item.price, unit: '$') %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
