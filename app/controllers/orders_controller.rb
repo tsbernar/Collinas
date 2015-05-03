@@ -24,7 +24,9 @@ class OrdersController < ApplicationController
 	  flash[:notice] = "Transaction successful!" if result.success?
 	  flash[:alert] = "#{result.transaction.processor_response_text}" unless result.success?
 	  if result.success?
-	  	current_cart.completed = true
+	  	cart = current_cart
+	  	cart.completed = true
+	  	cart.save
 	  	cart = Cart.create
 	    session[:cart_id] = cart.id
 	  	redirect_to @order
