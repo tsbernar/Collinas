@@ -1,0 +1,14 @@
+<h1> Orders </h1>
+<table>
+	<tbody>
+		<th>ID</th>
+		<th>Time</th>
+		<% @orders.order!(created_at: :desc) %>
+		<% @orders.each do |order| %>
+		<tr>
+			<td><%= order.id %><td>
+			<td><%= order.created_at.strftime("%l:%M%P %m/%d/%y") %> </td>
+		</tr>
+		<% end %>
+	</tbody>
+</table>
