@@ -1,6 +1,27 @@
 <tr class="collapse" <%= "id=#{order.id}-details"%>>
 	<td>
-			<%= id = order.cart_id %>
-			<%= id.type %>
+			<% cart = order.cart %>
+			<% cart_items = cart.cart_items %>
+
+		<table class="table">
+    <thead>
+      <tr>
+        <th> Name </th>
+        <th> Qty </th>
+        <th> Price </th>
+      </tr>
+    </thead>
+    <tbody>
+      <% cart_items.each do |item| %>
+        <tr>
+          <% menu_item = MenuItem.find(item.menu_item_id) %>
+          <td><%= menu_item.name %></td>
+          <td><%= item.qty %></td>
+          <td><%= number_to_currency(menu_item.price, unit: '$') %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  
 	</td>
 </tr>
