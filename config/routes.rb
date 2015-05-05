@@ -9,6 +9,9 @@ Rails.application.routes.draw do
 
   resources :cart_items
   devise_for :users
+  devise_scope :user do
+     get "admin", to: "devise/sessions#new"
+  end
   resources :menu_items do
     collection do
       post :import
@@ -27,6 +30,7 @@ Rails.application.routes.draw do
   get "/" => "pages#home"
   get "/about" => "pages#about"
   get "/contact_us" => "pages#contact_us"
+  get "/dashboard" => "pages#dashboard"
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
