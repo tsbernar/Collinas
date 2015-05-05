@@ -1,19 +1,19 @@
 # Faye
-development:
-  server: "http://localhost:9292/faye"
-  adapter_javascript_url: "http://localhost:9292/faye/faye.js"
-  auth_token: sderlfj2342
-  adapter: "Faye"
-  async: true
+# development:
+#  server: "http://localhost:9292/faye"
+#  adapter_javascript_url: "http://localhost:9292/faye/faye.js"
+#  auth_token: sderlfj2342
+#  adapter: "Faye"
+# async: true
 
 # Pusher
-# development:
-#   adapter_javascript_url: "http://js.pusher.com/2.0/pusher.min.js"
-#   app_id: "YOUR_PUSHER_APP_ID"
-#   api_key: "YOUR_PUSHER_API_KEY"
-#   auth_token: "YOUR_PUSHER_SECRET"
-#   adapter: "Pusher"
-#   async: true
+development:
+  adapter_javascript_url: "http://js.pusher.com/2.0/pusher.min.js"
+  app_id: ENV["PUSHER_APP_ID"]
+  api_key: ENV["PUSHER_API_KEY"]
+  auth_token: ENV["PUSHER_TOKEN"]
+  adapter: "Pusher"
+  async: true
 
 # Disabled
 # development:
@@ -27,8 +27,9 @@ test:
   async: false
 
 production:
-  server: "http://example.com/faye"
-  adapter_javascript_url: "http://localhost:9292/faye/faye.js"
-  adapter: "Faye"
-  auth_token: "cbf36e5d343b7e17d7e3e3d41f171e0d1da858811d3510a3f90a00af8960bd5b"
+  adapter_javascript_url: "http://js.pusher.com/2.0/pusher.min.js"
+  app_id: ENV['PUSHER_APP_ID']
+  api_key: ENV['PUSHER_API_KEY']
+  auth_token: ENV['PUSHER_TOKEN']
+  adapter: "Pusher"
   async: true
