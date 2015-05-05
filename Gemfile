@@ -43,6 +43,7 @@ gem 'receipts'
 
 ## for realtime 
 gem 'faye'
+gem 'pusher'
 gem 'thin', require: false
 gem 'sync'
 

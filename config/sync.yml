@@ -9,9 +9,9 @@
 # Pusher
 development:
   adapter_javascript_url: "http://js.pusher.com/2.0/pusher.min.js"
-  app_id: ENV["PUSHER_APP_ID"]
-  api_key: ENV["PUSHER_API_KEY"]
-  auth_token: ENV["PUSHER_TOKEN"]
+  app_id: "118644"
+  api_key: "65ce574f51ceb7279fff"
+  auth_token: "8fd90247caa4bd63b05a"
   adapter: "Pusher"
   async: true
 
@@ -27,9 +27,8 @@ test:
   async: false
 
 production:
-  adapter_javascript_url: "http://js.pusher.com/2.0/pusher.min.js"
-  app_id: ENV['PUSHER_APP_ID']
-  api_key: ENV['PUSHER_API_KEY']
-  auth_token: ENV['PUSHER_TOKEN']
-  adapter: "Pusher"
+  server: "http://example.com/faye"
+  adapter_javascript_url: "http://localhost:9292/faye/faye.js"
+  adapter: "Faye"
+  auth_token: "cbf36e5d343b7e17d7e3e3d41f171e0d1da858811d3510a3f90a00af8960bd5b"
   async: true
