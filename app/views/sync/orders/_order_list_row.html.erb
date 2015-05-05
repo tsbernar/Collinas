@@ -1,0 +1,8 @@
+<tr>
+	<td><%= order.id %></td>
+	<td><%= order.created_at.strftime("%l:%M%P %m/%d/%y") %> </td>
+	<td> <%=order.completed%> </td>
+	<td>
+		<%= link_to icon('square-o' , class: "fa-lg square-o add_subtract_buttons"), root_path(:order_id => order.id), :method => :post  , class: "no-hover hvr-grow"  %>
+	</td>
+</tr>

@@ -1,5 +1,5 @@
 <h1> Orders </h1>
-<table class="tabel">
+<table class="table">
 	<thead>
 		<tr>
 			<th>ID</th>
@@ -10,15 +10,9 @@
 	<tbody>
 		<% @orders.order!(created_at: :desc) %>
 		<% @orders.each do |order| %>
+			<%= sync_new partial: 'order_list_row', resource: Order.new %>
 			<% if order.completed != true %>
-				<tr>
-					<td><%= order.id %></td>
-					<td><%= order.created_at.strftime("%l:%M%P %m/%d/%y") %> </td>
-					<td> <%=order.completed%> </td>
-					<td>
-						<%= link_to icon('square-o' , class: "fa-lg square-o add_subtract_buttons"), root_path(:order_id => order.id), :method => :post  , class: "no-hover hvr-grow"  %>
-					</td>
-				</tr>
+			<%= sync partial: 'order_list_row', resource: order  %>
 			<% end %>
 		<% end %>
 	</tbody>

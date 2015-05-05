@@ -16,4 +16,5 @@
 //= require jquery.turbolinks
 //= require turbolinks
 //= require braintree
+//= require sync
 //= require_tree .

@@ -1,5 +1,5 @@
 class OrdersController < ApplicationController
-	before_action :set_order, only: [:show]
+	before_action :set_order, only: [:show, :update]
 
 	def index
 		@orders = Order.all
@@ -10,6 +10,15 @@ class OrdersController < ApplicationController
 		@client_token = Braintree::ClientToken.generate
 		@cart = current_cart
 		render :layout => 'checkoutlayout'
+	end
+
+	def update
+			if @order.update_attributes(order_params)
+				sync_update @order
+				redirect_to orders_path, notice: "Order was successfully updated."
+			else
+				redirect_to orders_path
+			end
 	end
 
 
@@ -33,6 +42,7 @@ class OrdersController < ApplicationController
 	  	cart.save
 	  	cart = Cart.create
 	    session[:cart_id] = cart.id
+	    sync_new @order
 	  	redirect_to @order
 	  end
 	end

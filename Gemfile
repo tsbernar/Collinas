@@ -41,6 +41,11 @@ gem 'braintree'
 gem 'braintree-rails', '~> 1.4.0'
 gem 'receipts'
 
+## for realtime 
+gem 'faye'
+gem 'thin', require: false
+gem 'sync'
+
 group :production do
 	gem 'pg'
 	gem 'rails_12factor'
