@@ -12,14 +12,11 @@
 	</thead>
 	<tbody>
 		<%= sync_new partial: 'order_list_row', resource: Order.new %>
+		<%= sync_new partial: 'order_details_row', resource: Order.new %>
 		<% @orders.order!(created_at: :desc) %>
 		<% @orders.each do |order| %>
 			<%= sync partial: 'order_list_row', resource: order  %>
-			<tr class="collapse" <%= "id=#{order.id}-details"%>>
-				<td>
-						details
-				</td>
-			</tr>
+			<%= sync partial: 'order_details_row', resource: order %>
 		<% end %>
 	</tbody>
 </table>
