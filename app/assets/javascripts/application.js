@@ -13,9 +13,9 @@
 //= require jquery
 //= require autoNumeric
 //= require jquery_ujs
+//= require bootstrap-sprockets
 //= require jquery.turbolinks
 //= require turbolinks
 //= require braintree
 //= require sync
-//= require bootstrap-sprockets
 //= require_tree .
