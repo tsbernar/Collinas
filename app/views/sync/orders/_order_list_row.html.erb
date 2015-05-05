@@ -5,4 +5,10 @@
 	<td>
 		<%= link_to icon('square-o' , class: "fa-lg square-o add_subtract_buttons"), root_path(:order_id => order.id), :method => :post  , class: "no-hover hvr-grow"  %>
 	</td>
+
+	<td>
+		<%= link_to order_path(order, order: {completed: true}) , method: :put do %>
+		<%= icon('square-o' , class: "fa-lg square-o add_subtract_buttons") %>
+		<% end %>
+	</td>
 </tr>

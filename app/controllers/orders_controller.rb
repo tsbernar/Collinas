@@ -13,12 +13,12 @@ class OrdersController < ApplicationController
 	end
 
 	def update
-			if @order.update_attributes(order_params)
-				sync_update @order
-				redirect_to orders_path, notice: "Order was successfully updated."
-			else
-				redirect_to orders_path
-			end
+		if @order.update_attributes(order_params)
+			sync_update @order
+			redirect_to orders_path, notice: "Order was successfully updated."
+		else
+			redirect_to orders_path
+		end
 	end
 
 
@@ -73,7 +73,7 @@ class OrdersController < ApplicationController
     end
 
 		def order_params
-      params.require(:order).permit(:id, :total, :tax, :subtotal, :cart_id, :name, :delivery?, :phone_number, :address, :zip)
+      params.require(:order).permit(:id, :total, :tax, :subtotal, :cart_id, :name, :delivery?, :phone_number, :address, :zip, :completed)
     end
 
 end
