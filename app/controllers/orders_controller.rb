@@ -3,13 +3,14 @@ class OrdersController < ApplicationController
 
 	def index
 		@orders = Order.all
+		render :layout => 'blanklayout'
 	end
 
 	def new
 		@order = Order.new
 		@client_token = Braintree::ClientToken.generate
 		@cart = current_cart
-		render :layout => 'checkoutlayout'
+		render :layout => 'blanklayout'
 	end
 
 	def update
@@ -49,7 +50,7 @@ class OrdersController < ApplicationController
 
 	def order_info
 		@order = Order.new
-		render :layout => 'checkoutlayout'
+		render :layout => 'blanklayout'
 	end
 
 	def show

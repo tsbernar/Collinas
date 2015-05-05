@@ -23,19 +23,19 @@
       <% if user_signed_in? %> 
         <% if current_user.admin %> 
           <li> admin signed in</li>
-          <li><%= link_to 'Dashboard', orders_path %></li>
+          <li><%= link_to 'Dashboard', orders_path, :target => '_blank' %></li>
           <li><%= link_to 'Settings', "#" %></li>
         <% end %>
         <li><%= link_to 'Log out', destroy_user_session_path, method: :delete %></li> 
       <% else %>
         <li><%= link_to 'Sign in', new_user_session_path %></li>
+      <% end %>
       <li>
         <%= link_to(cart_path , data: { no_turbolink: true }) do %>
           Cart
           <% if current_cart.size > 0 %>
             <%= content_tag("span", current_cart.size, class: "badge") %>
           <% end %>
-        <% end %>
       </li>
       <% end %>
     </ul>
