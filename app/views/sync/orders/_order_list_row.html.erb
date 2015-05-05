@@ -7,8 +7,14 @@
 	</td>
 
 	<td>
-		<%= link_to order_path(order, order: {completed: true}) , method: :put do %>
-		<%= icon('square-o' , class: "fa-lg square-o add_subtract_buttons") %>
+		<% if order.completed == false %>
+			<%= link_to order_path(order, order: {completed: true}) , method: :put , class: "no-hover hvr-grow" do %>
+			<%= icon('square-o' , class: "fa-lg square-o add_subtract_buttons") %>
+			<% end %>
+		<% else %>
+			<%= link_to order_path(order, order: {completed: false}) , method: :put , class: "no-hover hvr-grow" do %>
+			<%= icon('check-square-o' , class: "fa-lg check-square-o add_subtract_buttons") %>
+			<% end %>
 		<% end %>
 	</td>
 </tr>

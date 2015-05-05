@@ -15,7 +15,7 @@ class OrdersController < ApplicationController
 	def update
 		if @order.update_attributes(order_params)
 			sync_update @order
-			redirect_to orders_path, notice: "Order was successfully updated."
+			redirect_to orders_path
 		else
 			redirect_to orders_path
 		end

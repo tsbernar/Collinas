@@ -11,9 +11,9 @@
 		<%= sync_new partial: 'order_list_row', resource: Order.new %>
 		<% @orders.order!(created_at: :desc) %>
 		<% @orders.each do |order| %>
-			<% if order.completed != true %>
+		
 			<%= sync partial: 'order_list_row', resource: order  %>
-			<% end %>
+			
 		<% end %>
 	</tbody>
 </table>
