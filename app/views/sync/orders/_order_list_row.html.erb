@@ -1,20 +1,28 @@
-<tr>
+<% if order.completed == false %>
+	<tr class="warning">
+<% else %>
+	<tr class="success">
+<% end %>
 	<td><%= order.id %></td>
 	<td><%= order.created_at.strftime("%l:%M%P %m/%d/%y") %> </td>
 	<td> <%=order.completed%> </td>
+	<td>
+		<%= link_to "Details" , "##{order.id}-details" , 'aria-expanded' => "false" , 'aria-controls' => "#{order.id}-details" , 'data-toggle' => "collapse" , class: "btn btn-info" %>
+	</td>	
 	<td>
 		<%= link_to icon('square-o' , class: "fa-lg square-o add_subtract_buttons"), root_path(:order_id => order.id), :method => :post  , class: "no-hover hvr-grow"  %>
 	</td>
 
 	<td>
 		<% if order.completed == false %>
-			<%= link_to order_path(order, order: {completed: true}) , method: :put , class: "no-hover hvr-grow" do %>
+			<%= link_to order_path(order, order: {completed: true}) , remote: true, method: :put , class: "no-hover hvr-grow" do %>
 			<%= icon('square-o' , class: "fa-lg square-o add_subtract_buttons") %>
 			<% end %>
 		<% else %>
-			<%= link_to order_path(order, order: {completed: false}) , method: :put , class: "no-hover hvr-grow" do %>
+			<%= link_to order_path(order, order: {completed: false}) , remote: true, method: :put , class: "no-hover hvr-grow" do %>
 			<%= icon('check-square-o' , class: "fa-lg check-square-o add_subtract_buttons") %>
 			<% end %>
 		<% end %>
 	</td>
 </tr>
+

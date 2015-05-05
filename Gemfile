@@ -41,7 +41,7 @@ gem 'braintree'
 gem 'braintree-rails', '~> 1.4.0'
 gem 'receipts'
 
-## for realtime 
+## for realtime order page updates
 gem 'faye'
 gem 'pusher'
 gem 'thin', require: false
