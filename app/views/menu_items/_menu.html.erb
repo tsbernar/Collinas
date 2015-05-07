@@ -1,5 +1,5 @@
 
-<h1>Listing Menu Items</h1>
+<h1>Menu</h1>
 
 <table class="table">
   <thead>
@@ -22,17 +22,11 @@
             <td><%= menu_item.name%></td>
             <td><%= menu_item.description%></td>
             <td><%= number_to_currency(menu_item.price, :unit => "$")%></td>
-        
-              <% if current_cart.cart_items.where("menu_item_id = ?", menu_item.id).first %>
-                <td><%= link_to "Add to Order" , add_to_cart_path(:menu_item_id => menu_item.id), :method => :post , class: "btn btn-default disabled"%>
-                </td>
-              <% else %>
-                <td><%= link_to 'Add to Order' , add_to_cart_path(:menu_item_id => menu_item.id), :method => :post , class: "btn btn-default"%></td>
-              <% end %>
-
+            <td><%= link_to "Add to Order" , add_to_cart_path(:menu_item_id => menu_item.id), :method => :post , class: "btn btn-default" , :disabled => current_cart.cart_items.where("menu_item_id = ?", menu_item.id).first %>
+            </td>
             <% if user_signed_in? && @user.admin %>
               <td><%= link_to 'Edit', edit_menu_item_path(menu_item) %></td>
-              <td><%= link_to 'Delete', menu_item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              <td><%= link_to 'Delete', menu_item, method: :delete, data: { confirm: 'Are you sure? This cannot be undone' } %></td>
             <% end %>
           </tr>
         <% end %>
