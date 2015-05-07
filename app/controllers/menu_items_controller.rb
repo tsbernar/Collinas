@@ -3,9 +3,13 @@ class MenuItemsController < ApplicationController
   before_action :set_sections_for_upload_template, only: :upload
 
   def upload
-    respond_to do |format|
-      format.html
-      format.csv { send_data @sections.to_csv_template}
+    if current_user.try(:admin?)
+      respond_to do |format|
+        format.html
+        format.csv { send_data @sections.to_csv_template}
+      end
+    else
+      redirect_to root_path
     end
   end
 
