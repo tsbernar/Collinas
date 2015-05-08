@@ -8,7 +8,7 @@ class Order < ActiveRecord::Base
 			Order.all
 		end
 	end
-
+	
 	def receipt
 		Receipts::Receipt.new(
 			id: id,
