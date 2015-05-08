@@ -3,7 +3,7 @@ class Order < ActiveRecord::Base
 
 	def self.search(search)
 		if search
-			Order.where('id ILIKE ? OR name ILIKE ?', "%#{search}%", "%#{search}%")
+			Order.where('cast(id as text) ILIKE ? OR name ILIKE ?', "%#{search}%", "%#{search}%")
 		else
 			Order.all
 		end
