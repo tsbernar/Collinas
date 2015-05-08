@@ -3,7 +3,7 @@ class OrdersController < ApplicationController
 	before_action :require_admin, only: [:index]
 
 	def index
-		@orders = Order.all
+		@orders = Order.search(params[:search])
 		render :layout => 'blanklayout'
 	end
 

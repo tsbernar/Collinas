@@ -1,6 +1,14 @@
 class Order < ActiveRecord::Base
 	belongs_to :cart
 
+	def self.search(search)
+		if search
+			Order.where('id LIKE ? OR name LIKE ?', "%#{search}%", "%#{search}%")
+		else
+			Order.all
+		end
+	end
+
 	def receipt
 		Receipts::Receipt.new(
 			id: id,
