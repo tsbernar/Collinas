@@ -1,5 +1,4 @@
 <!-- hidden checkout page to popup with facebox -->
-
 <div id="checkout" >
 	<iframe src="orders/new" allowtransparency="true" height="495" width="100%" style="transition: height 210ms cubic-bezier(0.39, 0.575, 0.565, 1); -webkit-transition: height 210ms cubic-bezier(0.39, 0.575, 0.565, 1); border: 0px; z-index: 9999;"  frameborder="0"></iframe>
 </div>
@@ -10,17 +9,17 @@
   })
 </script>
 
+
+<div class="panel panel-default">
+<div class="panel-heading">
 <h1>Cart</h1>
-<p>cart id: <%= @cart.id %></p>
+</div>
+<div class="panel-body">
 <% cart_items = @cart.cart_items %>
 <table class="table">
 	<thead>
 		<tr>
-			<th> ID </th>
-			<th> Name </th>
-			<th> CartId </th>
-			<th> MenuItemId </th>
-			<th> Name </th>
+			<th width="70%"> Name </th>
 			<th> Qty </th>
 			<th> Price </th>
 		</tr>
@@ -28,29 +27,29 @@
 	<tbody>
 		<% cart_items.each do |item| %>
 			<tr>
-				<td><%= item.id %></td>
-				<td><%= item.name %></td>
-				<td><%= item.cart_id %></td>
 				<% menu_item = MenuItem.find(item.menu_item_id) %>
-				<td><%= item.menu_item_id %></td>
-				<td><%= menu_item.name %></td>
+				<td width="70%"><%= menu_item.name %></td>
+				<td><%= number_to_currency(menu_item.price, unit: '$') %></td>
 				<td>
 					<%= link_to icon('minus-square' , class: "fa-lg add_subtract_buttons"), decrease_qty_path(:cart_item_id => item.id), :method => :post  , class: "no-hover hvr-grow"  %> 
 					<%= item.qty %> 
 					<%= link_to icon('plus-square' , class: "fa-lg add_subtract_buttons"), increase_qty_path(:cart_item_id => item.id), :method => :post , class: "no-hover hvr-grow" %>
 				</td>
-				<td><%= number_to_currency(menu_item.price, unit: '$') %></td>
 			</tr>
 		<% end %>
 	</tbody>
 </table>
+</div>
 
+
+<div class="panel-footer">
 <p> sub total: <%= number_to_currency(@cart.subtotal, unit: '$') %> </p>
 <p> tax: <%= number_to_currency(@cart.tax, unit: '$') %> </p>
 <p> total: <%= number_to_currency(@cart.total, unit: '$') %> </p>
-
 <% if current_cart.cart_items != nil && current_cart.cart_items.length > 0 %>
   <%= link_to "Checkout", '#checkout' , rel:"facebox"  %>
 <% end %>
 
+</div>
+</div>
 

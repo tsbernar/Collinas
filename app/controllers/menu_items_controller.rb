@@ -1,16 +1,13 @@
 class MenuItemsController < ApplicationController
   before_action :set_menu_item, only: [:show, :edit, :update, :destroy, :add]
   before_action :set_sections_for_upload_template, only: :upload
+  before_action :require_admin, only: [:upload, :import, :new, :edit, :update]
 
   def upload
-    if current_user.try(:admin?)
       respond_to do |format|
         format.html
         format.csv { send_data @sections.to_csv_template}
       end
-    else
-      redirect_to root_path
-    end
   end
 
   def import
@@ -30,11 +27,7 @@ class MenuItemsController < ApplicationController
   end
 
   def new
-    if current_user.try(:admin?)
       @menu_item = MenuItem.new
-    else
-      redirect_to root_path
-    end
   end
 
   def edit
@@ -64,6 +57,12 @@ class MenuItemsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
+    def require_admin
+      if !current_user.try(:admin?)
+        redirect_to root_path
+      end
+    end
+
     def set_menu_item
       @menu_item = MenuItem.find(params[:id])
     end

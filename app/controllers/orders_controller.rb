@@ -1,5 +1,6 @@
 class OrdersController < ApplicationController
 	before_action :set_order, only: [:show, :update]
+	before_action :require_admin, only: [:index]
 
 	def index
 		@orders = Order.all
@@ -68,6 +69,12 @@ class OrdersController < ApplicationController
 	end
 
 	private
+
+		def require_admin
+			if !current_user.try(:admin?)
+				redirect_to root_path
+			end
+		end
 
 		def set_order
       @order = Order.find(params[:id])
