@@ -3,12 +3,12 @@ class Order < ActiveRecord::Base
 
 	def self.search(search)
 		if search
-			Order.where('id LIKE ? OR name LIKE ?', "%#{search}%", "%#{search}%")
+			Order.where('id ILIKE ? OR name ILIKE ?', "%#{search}%", "%#{search}%")
 		else
 			Order.all
 		end
 	end
-	
+
 	def receipt
 		Receipts::Receipt.new(
 			id: id,
