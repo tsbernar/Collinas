@@ -1,5 +1,12 @@
-<h1>Editing Menu Item</h1>
 
-<%= render 'form' %>
-
-<%= link_to 'Back', menu_items_path %>
+<div class="panel panel-default add-menu-item">
+	<div class="panel-heading">
+		<h1>Edit Menu Item</h1>
+	</div>
+	<div class= "panel-body">
+		<%= render 'form' %>
+	</div>
+	<div class="panel-footer">
+  	<p><%= link_to 'Back', menu_items_path %></p>
+  </div>
+</div>

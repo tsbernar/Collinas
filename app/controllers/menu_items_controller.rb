@@ -30,10 +30,11 @@ class MenuItemsController < ApplicationController
   end
 
   def new
-    @menu_item = MenuItem.new
-  end
-
-  def show
+    if current_user.try(:admin?)
+      @menu_item = MenuItem.new
+    else
+      redirect_to root_path
+    end
   end
 
   def edit
