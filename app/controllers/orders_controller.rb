@@ -4,7 +4,6 @@ class OrdersController < ApplicationController
 
 	def index
 		@orders = Order.search(params[:search])
-		render :layout => 'blanklayout'
 	end
 
 	def new
@@ -14,12 +13,20 @@ class OrdersController < ApplicationController
 		render :layout => 'blanklayout'
 	end
 
+	def order_info
+		@order = Order.new
+		@cart = current_cart
+		render :layout => 'blanklayout'
+	end
+
 	def update
 		if @order.update_attributes(order_params)
 			sync_update @order
-			redirect_to orders_path
+			format.html {redirect_to [orders_path]}
+			format.js
 		else
-			redirect_to orders_path
+			format.html {redirect_to [orders_path]}
+			format.js
 		end
 	end
 
@@ -47,11 +54,6 @@ class OrdersController < ApplicationController
 	    sync_new @order
 	  	redirect_to @order
 	  end
-	end
-
-	def order_info
-		@order = Order.new
-		render :layout => 'blanklayout'
 	end
 
 	def show
