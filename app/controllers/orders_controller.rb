@@ -1,20 +1,19 @@
 class OrdersController < ApplicationController
-	before_action :set_order, only: [:show, :update]
+	before_action :set_order, only: [:show, :update, :checkout]
 	before_action :require_admin, only: [:index]
 
 	def index
 		@orders = Order.search(params[:search])
 	end
 
-	def new
+	def new #order_info 
 		@order = Order.new
-		@client_token = Braintree::ClientToken.generate
 		@cart = current_cart
 		render :layout => 'blanklayout'
 	end
 
-	def order_info
-		@order = Order.new
+	def checkout #braintree
+		@client_token = Braintree::ClientToken.generate
 		@cart = current_cart
 		render :layout => 'blanklayout'
 	end
