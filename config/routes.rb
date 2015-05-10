@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   resources :orders
   get '/checkout' => 'orders#checkout', as: :checkout
-  get '/order_info' => 'orders#order_info'
+  get '/order_info' => 'orders#new'
 
   resources :cart_items
   devise_for :users

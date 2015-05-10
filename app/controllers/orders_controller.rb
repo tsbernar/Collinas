@@ -13,6 +13,7 @@ class OrdersController < ApplicationController
 	end
 
 	def checkout #braintree
+		@order = Order.new
 		@client_token = Braintree::ClientToken.generate
 		@cart = current_cart
 		render :layout => 'blanklayout'

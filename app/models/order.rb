@@ -1,5 +1,6 @@
 class Order < ActiveRecord::Base
 	belongs_to :cart
+	validates :name, presence: true, length: { maximum: 30 }
 
 	def self.search(search)
 		if search

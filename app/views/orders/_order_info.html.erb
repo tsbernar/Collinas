@@ -1,0 +1,62 @@
+<%= form_for(@order) do |f| %>
+  <% if @order.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@order.errors.count, "error") %> prohibited this order from being saved:</h2>
+
+      <ul>
+      <% @order.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul> 
+    </div>
+  <% end %>
+
+  <div class="field form-group">
+    <%= f.radio_button :delivery?, false, checked: true %>
+    <%= f.label :delivery_false, 'Takeout' %>
+    <%= f.radio_button :delivery?, true, 'data-toggle'=>"collapse", 'data-target'=>"#address", 'aria-expanded'=>"false", 'aria-controls'=>"address"%> 
+    <%= f.label :delivery_true, 'Delivery' %>
+  </div>
+
+  <div class="field form-group">
+    <%= f.label "#{:name}:" %>
+    <%= f.text_field :name, autofocus: true, class: "form-control"%>  
+  </div>
+
+  <div class="field form-group">
+    <%= f.label "#{:email}:" %>
+    <%= f.email_field :email, autofocus: true, class: "form-control"%>  
+  </div>
+
+  <div class="field form-group">
+    <%= f.label "#{:phone_number}:" %>
+    <%= f.text_field :phone_number, class: "form-control"%>
+  </div>
+
+<div class="collapse" id="address">
+  <div class="field form-group">
+    <%= f.label "#{:street}:" %>
+    <%= f.text_field :street, class: "form-control"%>
+  </div>
+
+  <div class="field form-group">
+    <%= f.label "#{:city}:" %>
+    <%= f.text_field :city, class: "form-control"%>
+  </div>
+
+  <div class="field form-group">
+    <%= f.label "#{:state}:" %>
+    <%= f.text_field :state, class: "form-control"%>
+  </div>
+
+  <div class="field form-group">
+    <%= f.label "#{:zip}:" %>
+    <%= f.text_field :zip, class: "form-control"%>
+  </div>
+
+</div>
+
+  <div class="actions form-group">
+    <%= f.submit "Next", class: "btn btn-primary" %>
+  </div>
+  <% end %>
