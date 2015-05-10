@@ -6,7 +6,9 @@ Rails.application.routes.draw do
 
   resources :orders
   get '/checkout' => 'orders#checkout', as: :checkout
+  post '/checkout' => 'orders#checkout'
   get '/order_info' => 'orders#new'
+  post '/braintree' => 'orders#braintree', as: :braintree
 
   resources :cart_items
   devise_for :users

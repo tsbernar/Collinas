@@ -12,7 +12,7 @@
   <% end %>
 
   <div class="field form-group">
-    <%= f.radio_button :delivery?, false, checked: true %>
+    <%= f.radio_button :delivery?, false, checked: true, 'data-toggle'=>"collapse", 'data-target'=>"#address", 'aria-expanded'=>"false", 'aria-controls'=>"address" %>
     <%= f.label :delivery_false, 'Takeout' %>
     <%= f.radio_button :delivery?, true, 'data-toggle'=>"collapse", 'data-target'=>"#address", 'aria-expanded'=>"false", 'aria-controls'=>"address"%> 
     <%= f.label :delivery_true, 'Delivery' %>
@@ -59,4 +59,4 @@
   <div class="actions form-group">
     <%= f.submit "Next", class: "btn btn-primary" %>
   </div>
-  <% end %>
+<% end %>

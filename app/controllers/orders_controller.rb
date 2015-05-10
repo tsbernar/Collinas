@@ -1,5 +1,5 @@
 class OrdersController < ApplicationController
-	before_action :set_order, only: [:show, :update, :checkout]
+	before_action :set_order, only: [:show, :update]
 	before_action :require_admin, only: [:index]
 
 	def index
@@ -12,8 +12,19 @@ class OrdersController < ApplicationController
 		render :layout => 'blanklayout'
 	end
 
+	def create
+	 @order = Order.new(order_params)
+	 @order.total = current_cart.total.truncate(2).to_s
+	 @order.cart_id = current_cart.id
+    if @order.save
+    	session[:order] = @order.id 
+      redirect_to checkout_path
+    else
+      render :new 
+    end
+	end
+
 	def checkout #braintree
-		@order = Order.new
 		@client_token = Braintree::ClientToken.generate
 		@cart = current_cart
 		render :layout => 'blanklayout'
@@ -30,12 +41,10 @@ class OrdersController < ApplicationController
 		end
 	end
 
-
-	def create
-		@order = Order.new
-		@order.total = current_cart.total.truncate(2).to_s
-		@order.cart_id = current_cart.id
-	  nonce = params[:payment_method_nonce]
+	def braintree
+		@order = Order.find(session[:order])
+		@cart = current_cart
+		nonce = params[:payment_method_nonce]
 	  amount = @order.total
 	  render action: :new and return unless nonce
 	  result = Braintree::Transaction.sale(
