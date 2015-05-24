@@ -15,7 +15,7 @@
 <h1>Cart</h1>
 </div>
 <div class="panel-body">
-<% cart_items = @cart.cart_items %>
+<% cart_items = @cart.cart_items.sort { |a,b| a.menu_item.name <=> b.menu_item.name } %>
 <table class="table">
 	<thead>
 		<tr>
