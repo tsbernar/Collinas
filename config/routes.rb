@@ -34,6 +34,7 @@ Rails.application.routes.draw do
   get "/about" => "pages#about"
   get "/contact_us" => "pages#contact_us"
   get "/dashboard" => "pages#dashboard"
+  get "/settings" => "pages#settings"
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
