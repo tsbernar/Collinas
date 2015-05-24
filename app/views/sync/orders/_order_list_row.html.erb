@@ -1,5 +1,9 @@
 <% if order.completed == false %>
-	<tr class="warning">
+	<% if order.in_progress == true %>
+		<tr class="info">
+	<% else %>
+		<tr class="warning">
+	<% end %>
 <% else %>
 	<tr class="success">
 <% end %>
@@ -10,7 +14,15 @@
 		<%= link_to "Details" , "##{order.id}-details" , 'aria-expanded' => "false" , 'aria-controls' => "#{order.id}-details" , 'data-toggle' => "collapse" , class: "btn btn-info" %>
 	</td>	
 	<td>
-		<%= link_to icon('square-o' , class: "fa-lg square-o add_subtract_buttons"), root_path(:order_id => order.id), :method => :post  , class: "no-hover hvr-grow"  %>
+		<% if order.in_progress == false %>
+			<%= link_to order_path(order, order: {in_progress: true}) , remote: true, method: :put , class: "no-hover hvr-grow" do %>
+			<%= icon('square-o' , class: "fa-lg square-o add_subtract_buttons") %>
+			<% end %>
+		<% else %>
+			<%= link_to order_path(order, order: {in_progress: false}) , remote: true, method: :put , class: "no-hover hvr-grow" do %>
+			<%= icon('check-square-o' , class: "fa-lg check-square-o add_subtract_buttons") %>
+			<% end %>
+		<% end %>
 	</td>
 
 	<td>

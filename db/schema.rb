@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150510005234) do
+ActiveRecord::Schema.define(version: 20150524232612) do
 
   create_table "cart_items", force: :cascade do |t|
     t.string   "name"
@@ -69,6 +69,7 @@ ActiveRecord::Schema.define(version: 20150510005234) do
     t.string   "street"
     t.string   "state"
     t.string   "email",                                  default: "",    null: false
+    t.boolean  "in_progress",                            default: false, null: false
   end
 
   create_table "users", force: :cascade do |t|
