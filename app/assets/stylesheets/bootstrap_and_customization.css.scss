@@ -5,12 +5,36 @@ $font-family-sans-serif:      'Lato', "Helvetica Neue", Helvetica, Arial, sans-s
 $navbar-height:                 45px;
 $input-border-focus:            gray;
 
-
 @import 'bootstrap';
 
 // hides checkout div to use with facebox
 #checkout {
     display: none;
+}
+
+#error_explanation {
+  color: red;
+  h2{
+  font-size: 12px;
+  }
+  ul {
+    color: red;
+    margin: 0 0 30px 0;
+  }
+}
+
+#form-error {
+    @extend .has-error;
+  .form-control {
+    color: $state-danger-text;
+  }
+}
+
+.field_with_errors {
+  @extend .has-error;
+  .form-control {
+    color: $state-danger-text;
+  }
 }
 
 // padding for braintree payment form 
@@ -23,6 +47,10 @@ $input-border-focus:            gray;
 	margin: 0 auto;
 }
 
+.no-gutter {
+    padding-left:0;
+    padding-right:0;
+}
 
 // used for growing buttons on cart page + and - 
 .hvr-grow {

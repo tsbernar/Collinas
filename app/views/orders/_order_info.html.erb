@@ -1,8 +1,9 @@
-<%= form_for(@order) do |f| %>
+<%= form_for(@order, class: 'form-horizontal') do |f| %>
   <% if @order.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@order.errors.count, "error") %> prohibited this order from being saved:</h2>
-
+      <div class="alert alert-danger">
+        <h2><%= pluralize(@order.errors.count, "error") %> prohibited this order from being saved:</h2>
+      </div>
       <ul>
       <% @order.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -11,52 +12,54 @@
     </div>
   <% end %>
 
-  <div class="field form-group">
+  <div class="field form-group input-sm">
     <%= f.radio_button :delivery?, false, checked: true, 'data-toggle'=>"collapse", 'data-target'=>"#address", 'aria-expanded'=>"false", 'aria-controls'=>"address" %>
     <%= f.label :delivery_false, 'Takeout' %>
     <%= f.radio_button :delivery?, true, 'data-toggle'=>"collapse", 'data-target'=>"#address", 'aria-expanded'=>"false", 'aria-controls'=>"address"%> 
     <%= f.label :delivery_true, 'Delivery' %>
   </div>
 
-  <div class="field form-group">
+  <div class="form-group-sm">
     <%= f.label "#{:name}:" %>
     <%= f.text_field :name, autofocus: true, class: "form-control"%>  
   </div>
 
-  <div class="field form-group">
+  <div class="form-group-sm">
     <%= f.label "#{:email}:" %>
-    <%= f.email_field :email, autofocus: true, class: "form-control"%>  
+    <%= f.email_field :email, class: "form-control"%>  
   </div>
 
-  <div class="field form-group">
+  <div class="field form-group-sm">
     <%= f.label "#{:phone_number}:" %>
     <%= f.text_field :phone_number, class: "form-control"%>
   </div>
 
 <div class="collapse" id="address">
-  <div class="field form-group">
+  <div class="field form-group-sm">
     <%= f.label "#{:street}:" %>
     <%= f.text_field :street, class: "form-control"%>
   </div>
 
-  <div class="field form-group">
+  <div class="field form-group-sm">
     <%= f.label "#{:city}:" %>
     <%= f.text_field :city, class: "form-control"%>
   </div>
+  
 
-  <div class="field form-group">
-    <%= f.label "#{:state}:" %>
-    <%= f.text_field :state, class: "form-control"%>
-  </div>
+    <div class="field form-group-sm">
+      <%= f.label "#{:state}:" %>
+      <%= f.text_field :state, class: "form-control"%>
+    </div>
 
-  <div class="field form-group">
-    <%= f.label "#{:zip}:" %>
-    <%= f.text_field :zip, class: "form-control"%>
-  </div>
+    <div class="field form-group-sm">
+      <%= f.label "#{:zip}:" %>
+      <%= f.text_field :zip, class: "form-control"%>
+    </div>
 
 </div>
 
-  <div class="actions form-group">
+  <div class="actions form-group-sm">
     <%= f.submit "Next", class: "btn btn-primary" %>
   </div>
 <% end %>
+
