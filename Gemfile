@@ -40,6 +40,7 @@ gem 'foreman'
 gem 'braintree'
 gem 'braintree-rails', '~> 1.4.0'
 gem 'receipts'
+gem 'will_paginate-bootstrap' ## for orders dashboard
 
 ## for realtime order page updates
 gem 'faye'

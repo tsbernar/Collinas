@@ -3,7 +3,7 @@ class OrdersController < ApplicationController
 	before_action :require_admin, only: [:index]
 
 	def index
-		@orders = Order.search(params[:search])
+		@orders = Order.search(params[:search]).paginate(:page => params[:page], :per_page => 20)
 	end
 
 	def new #order_info 
