@@ -1,15 +1,23 @@
 <tr class="collapse" <%= "id=#{order.id}-details"%>>
-	<td>
-  </td>
-    <td colspan="4">
-      <%= order.id %>
+ 
+    <td colspan="7">
+      <div class="jumbotron">
+        <p> Name: <%= order.name %> </p>
+        <p> Type:  
+          <% if order.delivery? %>
+            Delivery
+          <% else %> 
+            Takeout
+          <% end %>
+        </p>
+        <p> Phone: <%= number_to_phone(order.phone_number ,area_code: true) %>
 			<% cart = order.cart %>
 			<% cart_items = cart.cart_items %>
 
 		<table class="table">
     <thead>
       <tr>
-        <th> Name </th>
+        <th> Item </th>
         <th> Qty </th>
         <th> Price </th>
       </tr>
@@ -25,6 +33,6 @@
       <% end %>
     </tbody>
   </table>
-  
+  </div>
 	</td>
 </tr>

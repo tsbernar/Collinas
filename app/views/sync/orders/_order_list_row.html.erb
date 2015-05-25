@@ -8,8 +8,8 @@
 	<tr class="success">
 <% end %>
 	<td><%= order.id %></td>
-	<td><%= order.created_at.strftime("%l:%M%P %m/%d/%y") %></td>
-	<td><%= order.completed%></td>
+	<td><%= order.created_at.strftime("%m/%d/%y %l:%M%P") %></td>
+	<td><%= order.name%></td>
 	<td>
 		<%= link_to "Details" , "##{order.id}-details" , 'aria-expanded' => "false" , 'aria-controls' => "#{order.id}-details" , 'data-toggle' => "collapse" , class: "btn btn-info" %>
 	</td>	
