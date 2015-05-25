@@ -12,6 +12,33 @@ $input-border-focus:            gray;
     display: none;
 }
 
+.footer-link {
+    text-decoration: none;
+    color: white;
+    &:hover {
+    text-decoration: none;
+    color: white;
+  } 
+}
+
+// following 3 are for 'sticky' footer
+html {
+    position: relative;
+    min-height: 100%;
+}
+body {
+    margin: 0 0 50px; /* bottom = footer height */
+}
+footer {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 50px;
+    width: 100%;
+    background-color: #2c3e50;
+    font-size: 80%;
+}
+
 #error_explanation {
   color: red;
   h2{
