@@ -8588,20 +8588,26 @@ button.close {
   text-decoration: none;
   color: white;
 }
+/* line 18, /Users/trevorbernard/Desktop/Collinas/app/assets/stylesheets/bootstrap_and_customization.css.scss */
+.footer-link:hover {
+  text-decoration: none;
+  color: white;
+}
 
-/* line 21, /Users/trevorbernard/Desktop/Collinas/app/assets/stylesheets/bootstrap_and_customization.css.scss */
+/* line 25, /Users/trevorbernard/Desktop/Collinas/app/assets/stylesheets/bootstrap_and_customization.css.scss */
 html {
   position: relative;
   min-height: 100%;
 }
 
-/* line 25, /Users/trevorbernard/Desktop/Collinas/app/assets/stylesheets/bootstrap_and_customization.css.scss */
+/* line 29, /Users/trevorbernard/Desktop/Collinas/app/assets/stylesheets/bootstrap_and_customization.css.scss */
 body {
   margin: 0 0 50px;
   /* bottom = footer height */
+  padding-top: 70px;
 }
 
-/* line 28, /Users/trevorbernard/Desktop/Collinas/app/assets/stylesheets/bootstrap_and_customization.css.scss */
+/* line 34, /Users/trevorbernard/Desktop/Collinas/app/assets/stylesheets/bootstrap_and_customization.css.scss */
 footer {
   position: absolute;
   left: 0;
@@ -8609,51 +8615,51 @@ footer {
   height: 50px;
   width: 100%;
   background-color: #2c3e50;
-  text-size: 50%;
+  font-size: 80%;
 }
 
-/* line 38, /Users/trevorbernard/Desktop/Collinas/app/assets/stylesheets/bootstrap_and_customization.css.scss */
+/* line 44, /Users/trevorbernard/Desktop/Collinas/app/assets/stylesheets/bootstrap_and_customization.css.scss */
 #error_explanation {
   color: red;
 }
-/* line 40, /Users/trevorbernard/Desktop/Collinas/app/assets/stylesheets/bootstrap_and_customization.css.scss */
+/* line 46, /Users/trevorbernard/Desktop/Collinas/app/assets/stylesheets/bootstrap_and_customization.css.scss */
 #error_explanation h2 {
   font-size: 12px;
 }
-/* line 43, /Users/trevorbernard/Desktop/Collinas/app/assets/stylesheets/bootstrap_and_customization.css.scss */
+/* line 49, /Users/trevorbernard/Desktop/Collinas/app/assets/stylesheets/bootstrap_and_customization.css.scss */
 #error_explanation ul {
   color: red;
   margin: 0 0 30px 0;
 }
 
-/* line 51, /Users/trevorbernard/Desktop/Collinas/app/assets/stylesheets/bootstrap_and_customization.css.scss */
+/* line 57, /Users/trevorbernard/Desktop/Collinas/app/assets/stylesheets/bootstrap_and_customization.css.scss */
 #form-error .form-control {
   color: #a94442;
 }
 
-/* line 58, /Users/trevorbernard/Desktop/Collinas/app/assets/stylesheets/bootstrap_and_customization.css.scss */
+/* line 64, /Users/trevorbernard/Desktop/Collinas/app/assets/stylesheets/bootstrap_and_customization.css.scss */
 .field_with_errors .form-control {
   color: #a94442;
 }
 
-/* line 64, /Users/trevorbernard/Desktop/Collinas/app/assets/stylesheets/bootstrap_and_customization.css.scss */
+/* line 70, /Users/trevorbernard/Desktop/Collinas/app/assets/stylesheets/bootstrap_and_customization.css.scss */
 .payment-form-padding {
   padding: 20px;
 }
 
-/* line 68, /Users/trevorbernard/Desktop/Collinas/app/assets/stylesheets/bootstrap_and_customization.css.scss */
+/* line 74, /Users/trevorbernard/Desktop/Collinas/app/assets/stylesheets/bootstrap_and_customization.css.scss */
 .center {
   text-align: center;
   margin: 0 auto;
 }
 
-/* line 73, /Users/trevorbernard/Desktop/Collinas/app/assets/stylesheets/bootstrap_and_customization.css.scss */
+/* line 79, /Users/trevorbernard/Desktop/Collinas/app/assets/stylesheets/bootstrap_and_customization.css.scss */
 .no-gutter {
   padding-left: 0;
   padding-right: 0;
 }
 
-/* line 79, /Users/trevorbernard/Desktop/Collinas/app/assets/stylesheets/bootstrap_and_customization.css.scss */
+/* line 85, /Users/trevorbernard/Desktop/Collinas/app/assets/stylesheets/bootstrap_and_customization.css.scss */
 .hvr-grow {
   display: inline-block;
   vertical-align: middle;
@@ -8664,7 +8670,7 @@ footer {
   transition-property: transform;
 }
 
-/* line 88, /Users/trevorbernard/Desktop/Collinas/app/assets/stylesheets/bootstrap_and_customization.css.scss */
+/* line 94, /Users/trevorbernard/Desktop/Collinas/app/assets/stylesheets/bootstrap_and_customization.css.scss */
 .hvr-grow:hover,
 .hvr-grow:focus,
 .hvr-grow:active {
@@ -8672,63 +8678,58 @@ footer {
 }
 
 @media (min-width: 768px) {
-  /* line 95, /Users/trevorbernard/Desktop/Collinas/app/assets/stylesheets/bootstrap_and_customization.css.scss */
+  /* line 101, /Users/trevorbernard/Desktop/Collinas/app/assets/stylesheets/bootstrap_and_customization.css.scss */
   .navbar .navbar-nav {
     display: inline-block;
     float: none;
     vertical-align: top;
   }
 }
-/* line 102, /Users/trevorbernard/Desktop/Collinas/app/assets/stylesheets/bootstrap_and_customization.css.scss */
+/* line 108, /Users/trevorbernard/Desktop/Collinas/app/assets/stylesheets/bootstrap_and_customization.css.scss */
 .add_subtract_buttons {
   color: #3498db;
 }
-/* line 104, /Users/trevorbernard/Desktop/Collinas/app/assets/stylesheets/bootstrap_and_customization.css.scss */
+/* line 110, /Users/trevorbernard/Desktop/Collinas/app/assets/stylesheets/bootstrap_and_customization.css.scss */
 .add_subtract_buttons:hover {
   color: #3498db;
 }
 
-/* line 110, /Users/trevorbernard/Desktop/Collinas/app/assets/stylesheets/bootstrap_and_customization.css.scss */
+/* line 116, /Users/trevorbernard/Desktop/Collinas/app/assets/stylesheets/bootstrap_and_customization.css.scss */
 .no-hover:hover {
   background-color: transparent;
 }
 
-/* line 115, /Users/trevorbernard/Desktop/Collinas/app/assets/stylesheets/bootstrap_and_customization.css.scss */
+/* line 121, /Users/trevorbernard/Desktop/Collinas/app/assets/stylesheets/bootstrap_and_customization.css.scss */
 .panel-default {
   max-width: 500px;
   margin: 0 auto;
 }
 
-/* line 120, /Users/trevorbernard/Desktop/Collinas/app/assets/stylesheets/bootstrap_and_customization.css.scss */
+/* line 126, /Users/trevorbernard/Desktop/Collinas/app/assets/stylesheets/bootstrap_and_customization.css.scss */
 .cart {
   position: absolute;
   top: 0px;
   right: 0px;
 }
 
-/* line 126, /Users/trevorbernard/Desktop/Collinas/app/assets/stylesheets/bootstrap_and_customization.css.scss */
-.center-navbar {
-  font-size: 200%;
-}
-
-/* line 130, /Users/trevorbernard/Desktop/Collinas/app/assets/stylesheets/bootstrap_and_customization.css.scss */
+/* line 132, /Users/trevorbernard/Desktop/Collinas/app/assets/stylesheets/bootstrap_and_customization.css.scss */
 .add-menu-item {
   max-width: 500px;
   margin: 0 auto;
 }
 
-/* line 135, /Users/trevorbernard/Desktop/Collinas/app/assets/stylesheets/bootstrap_and_customization.css.scss */
+/* line 137, /Users/trevorbernard/Desktop/Collinas/app/assets/stylesheets/bootstrap_and_customization.css.scss */
 .nav-right {
   float: right;
 }
 
-/* line 140, /Users/trevorbernard/Desktop/Collinas/app/assets/stylesheets/bootstrap_and_customization.css.scss */
+/* line 142, /Users/trevorbernard/Desktop/Collinas/app/assets/stylesheets/bootstrap_and_customization.css.scss */
 .btn-file {
   position: relative;
   overflow: hidden;
 }
 
-/* line 144, /Users/trevorbernard/Desktop/Collinas/app/assets/stylesheets/bootstrap_and_customization.css.scss */
+/* line 146, /Users/trevorbernard/Desktop/Collinas/app/assets/stylesheets/bootstrap_and_customization.css.scss */
 .btn-file input[type=file] {
   position: absolute;
   top: 0;

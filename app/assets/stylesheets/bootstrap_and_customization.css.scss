@@ -28,7 +28,9 @@ html {
 }
 body {
     margin: 0 0 50px; /* bottom = footer height */
+    padding-top: 70px; // for navbar fixed-top to not overlay 
 }
+
 footer {
     position: absolute;
     left: 0;
