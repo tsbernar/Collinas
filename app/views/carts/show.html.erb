@@ -20,8 +20,8 @@
 	<thead>
 		<tr>
 			<th width="70%"> Name </th>
-			<th> Qty </th>
 			<th> Price </th>
+			<th> Qty </th>
 		</tr>
 	</thead>
 	<tbody>
@@ -47,7 +47,7 @@
 <p> tax: <%= number_to_currency(@cart.tax, unit: '$') %> </p>
 <p> total: <%= number_to_currency(@cart.total, unit: '$') %> </p>
 <% if current_cart.cart_items != nil && current_cart.cart_items.length > 0 %>
-  <%= link_to "Checkout", '#checkout' , rel:"facebox"  %>
+  <%= link_to "Checkout", '#checkout' , rel:"facebox", class: "btn btn-primary" %>
 <% end %>
 
 </div>
