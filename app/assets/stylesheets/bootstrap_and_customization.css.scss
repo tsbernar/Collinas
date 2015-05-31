@@ -1,34 +1,40 @@
 @import url(https://fonts.googleapis.com/css?family=Lato:400,700);
 
-$body-bg:                    white;
+$body-bg:                      white;
 $font-family-sans-serif:      'Lato', "Helvetica Neue", Helvetica, Arial, sans-serif;
 $navbar-height:                 45px;
 $input-border-focus:            gray;
+$navbar-default-bg:          #2c3e50; 
 
 @import 'bootstrap';
 
 // hides checkout div to use with facebox
+#yield {
+  padding-bottom: 20px;
+}
+
 #checkout {
     display: none;
 }
 
 .footer-link {
     text-decoration: none;
-    color: white;
+    color: black;
     &:hover {
     text-decoration: none;
-    color: white;
+    color: black;
   } 
 }
 
 // following 3 are for 'sticky' footer
 html {
     position: relative;
-    min-height: 100%;
+    min-height: 100%; 
 }
 body {
     margin: 0 0 50px; /* bottom = footer height */
     padding-top: 70px; // for navbar fixed-top to not overlay 
+    background-image: url("tweed.png");
 }
 
 footer {
@@ -37,7 +43,7 @@ footer {
     bottom: 0;
     height: 50px;
     width: 100%;
-    background-color: #2c3e50;
+    background-color: #7f8c8d;
     font-size: 80%;
 }
 
