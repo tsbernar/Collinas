@@ -80,6 +80,7 @@ only screen and (max-width: 760px),
     height: 400px;
     width: 100%;
     background: url("https://s3.amazonaws.com/collinas/FoodHaus+bg+image.jpg") no-repeat top center fixed;
+    margin-top: -30px;
 }
 
 
@@ -90,7 +91,7 @@ html {
 }
 body {
     margin: 0 0 50px; /* bottom = footer height */
-    padding-top: 40px; // for navbar fixed-top to not overlay
+    padding-top: 70px; // for navbar fixed-top to not overlay
     background-size: cover; 
 }
 
