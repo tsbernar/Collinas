@@ -46,4 +46,18 @@ class Cart < ActiveRecord::Base
 		size
 	end
 
+	def self.expired
+		now = Time.new
+		where(:completed => false).where("created_at <=?", (now - 86000))
+	end		
+
+	def expired
+		now = Time.new
+		if self.completed == false && now - self.created_at > 86400
+			true
+		else
+			false
+		end		
+	end
+
 end
