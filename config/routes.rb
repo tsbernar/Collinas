@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :events
   get '/cart' => 'carts#show', :as => 'cart'
   post '/add_to_cart/:menu_item_id' => 'carts#add_to_cart', :as => 'add_to_cart'
   post '/increase_qty/:cart_item_id' => 'cart_items#increase_qty', :as => 'increase_qty'
