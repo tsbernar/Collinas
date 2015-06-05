@@ -41,6 +41,7 @@ gem 'braintree'
 gem 'braintree-rails', '~> 1.4.0'
 gem 'receipts'
 gem 'will_paginate-bootstrap' ## for orders dashboard
+gem 'jquery-ui-rails' ## for datepicker in calendar
 
 ## for realtime order page updates
 gem 'faye'

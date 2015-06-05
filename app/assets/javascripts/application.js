@@ -12,8 +12,8 @@
 //
 //= require jquery
 //= require autoNumeric
-//= require jquery_ujs
 //= require jquery.turbolinks
+//= require jquery.ui.datepicker
 //= require turbolinks
 //= require bootstrap-sprockets
 //= require braintree
