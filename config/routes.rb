@@ -5,8 +5,6 @@ Rails.application.routes.draw do
   post '/decrease_qty/:cart_item_id' => 'cart_items#decrease_qty', :as => 'decrease_qty'
 
   resources :orders
-  resources :catering_orders
-  resources :events
   get '/checkout' => 'orders#checkout', as: :checkout
   post '/checkout' => 'orders#checkout'
   get '/order_info' => 'orders#new'
