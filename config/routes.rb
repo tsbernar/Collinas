@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
-  resources :catering_orders
-  resources :events
   get '/cart' => 'carts#show', :as => 'cart'
   post '/add_to_cart/:menu_item_id' => 'carts#add_to_cart', :as => 'add_to_cart'
   post '/increase_qty/:cart_item_id' => 'cart_items#increase_qty', :as => 'increase_qty'
   post '/decrease_qty/:cart_item_id' => 'cart_items#decrease_qty', :as => 'decrease_qty'
 
   resources :orders
+  resources :catering_orders
+  resources :events
   get '/checkout' => 'orders#checkout', as: :checkout
   post '/checkout' => 'orders#checkout'
   get '/order_info' => 'orders#new'
