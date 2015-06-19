@@ -13,9 +13,9 @@
 </head>
 <body>
 <%= render 'layouts/header' %>
-<% if current_page?(menu_items_path) %>
-  <div class="header"><p>Menu</p></div> <!-- for menu header -->
-<% end %>
+  <% if current_page?(menu_items_path) %>
+    <div class="header"><p>Menu</p></div> <!-- for menu header -->
+  <% end %>
 <div class="container" id="yield">
   <% flash.each do |name,msg| %>
   	<%= content_tag(:div, msg, class: "alert alert-info") %>

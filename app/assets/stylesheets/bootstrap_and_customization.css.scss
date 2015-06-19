@@ -11,7 +11,7 @@ $navbar-default-bg:          #2c3e50;
 only screen and (max-width: 760px),
 (min-device-width: 768px) and (max-device-width: 1024px)  {
 
-  /* Force table to not be like tables anymore */
+  /* Force table to not be like tables anymore*/
   table, thead, tbody, th, td, tr { 
     display: block; 
   }
@@ -44,17 +44,13 @@ only screen and (max-width: 760px),
     white-space: nowrap;
   }
   
-  /*
-  Label the data
-  */
 }
 
 
-// hides checkout div to use with facebox
 #yield {
   padding-bottom: 20px;
 }
-
+// hides checkout div to use with facebox
 #checkout {
     display: none;
 }
@@ -84,7 +80,9 @@ only screen and (max-width: 760px),
     padding-top: 10%;
     color: white;
     text-align: center;
+    p{
     font-size: 600%;
+  }
 }
 
 

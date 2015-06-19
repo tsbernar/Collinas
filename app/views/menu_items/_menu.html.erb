@@ -16,7 +16,7 @@
             <td><%= menu_item.name%></td>
             <td><%= menu_item.description%></td>
             <td><%= number_to_currency(menu_item.price, :unit => "$")%></td>
-            <td><%= link_to "Add to Order" , add_to_cart_path(:menu_item_id => menu_item.id), :method => :post , class: "btn btn-default" , :disabled => current_cart.cart_items.where("menu_item_id = ?", menu_item.id).first %>
+            <td><%= link_to "Add to Order" , add_to_cart_path(:menu_item_id => menu_item.id), method: :post, class: "btn btn-default" %>
             </td>
             <% if user_signed_in? && @user.admin %>
               <td><%= link_to 'Edit', edit_menu_item_path(menu_item), class: "btn btn-warning" %></td>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150604091352) do
+ActiveRecord::Schema.define(version: 20150605024043) do
 
   create_table "cart_items", force: :cascade do |t|
     t.string   "name"
@@ -34,6 +34,21 @@ ActiveRecord::Schema.define(version: 20150604091352) do
     t.datetime "updated_at",                 null: false
     t.string   "session_id"
     t.boolean  "completed",  default: false
+  end
+
+  create_table "catering_orders", force: :cascade do |t|
+    t.string   "name"
+    t.string   "phone"
+    t.string   "email"
+    t.string   "address"
+    t.string   "start"
+    t.string   "end"
+    t.string   "booking_id"
+    t.decimal  "total",      precision: 8, scale: 2
+    t.decimal  "subtotal",   precision: 8, scale: 2
+    t.decimal  "tax",        precision: 8, scale: 2
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
   end
 
 # Could not dump table "events" because of following NoMethodError
