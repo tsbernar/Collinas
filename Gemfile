@@ -41,6 +41,7 @@ gem 'braintree'
 gem 'braintree-rails', '~> 1.4.0'
 gem 'receipts'
 gem 'will_paginate-bootstrap' ## for orders dashboard
+gem 'dotenv-rails', :groups => [:development, :test] ## used to load enviroment variables from .env
 
 ## for realtime order page updates
 gem 'faye'
