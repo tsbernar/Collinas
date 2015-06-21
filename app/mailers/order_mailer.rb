@@ -1,5 +1,5 @@
 class OrderMailer < ApplicationMailer
-	default from: "order@bulletordering.com"
+	default from: "info@bulletordering.com"
 
   # Subject can be set in your I18n file at config/locales/en.yml
   # with the following lookup:
@@ -7,8 +7,7 @@ class OrderMailer < ApplicationMailer
   #   en.order_mailer.order_receipt.subject
   #
   def order_receipt(order)
-    @order = order
-
-    mail to: order.email , subject: "Order ##{order.id}"
+  	@order = order
+    mail to: @order.email , subject: "Order ##{order.id}"
   end
 end

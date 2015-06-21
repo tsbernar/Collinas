@@ -27,7 +27,7 @@ class Order < ActiveRecord::Base
 
 	def send_notification
 		#todo: get email address from order, send an email with receipt
-		OrderMailer.order_receipt(@order).deliver_later
+		OrderMailer.order_receipt(self).deliver_later
 	end
 
 	def line_items 
