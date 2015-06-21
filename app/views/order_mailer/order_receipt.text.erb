@@ -1,3 +1,18 @@
-order # <%= @order.id %>
+FoodHaus Cafe Order # <%= @order.id %>
+------------------------------------------------------------
 
-Thank you for your order.
+2106 S Olive St
+Los Angeles, CA 90007
+Phone. 213-741-0007
+
+Thanks for your order
+
+Order Time: <%= @order.created_at.strftime("%l:%M%P %m/%d/%Y") %>
+<% cart = @order.cart %> <% cart_items = cart.cart_items %>
+
+<% cart_items.each do |item| %>
+<% menu_item = MenuItem.find(item.menu_item_id) %>
+<%= menu_item.name %> (<%= item.qty %>)         <%= number_to_currency(menu_item.price, unit: '$') %>
+Tax:                                 <%= number_to_currency(@order.cart.tax, unit: '$') %>
+Total:                               <%= number_to_currency(@order.total, unit: '$') %>
+<% end %>

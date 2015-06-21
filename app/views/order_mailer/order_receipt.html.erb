@@ -1,5 +1,35 @@
-<h1>order # <%= @order.id %></h1>
-
+<h1>FoodHaus Cafe Order # <%= @order.id %></h1>
+<p>2106 S Olive St<br>
+Los Angeles, CA 90007<br>
+Phone. 213-741-0007</p>
 <p>
   Thanks for your order
 </p>
+  <p> Order Time: <%= @order.created_at.strftime("%l:%M%P %m/%d/%Y") %> </p>
+  <% cart = @order.cart %>
+  <% cart_items = cart.cart_items %>
+
+  <table style="border: 1px solid black;border-collapse: collapse;">
+    <thead>
+    </thead>
+    <tbody>
+      <% cart_items.each do |item| %>
+        <tr style="border: 1px solid black">
+          <% menu_item = MenuItem.find(item.menu_item_id) %>
+          <td style="padding: 5px"><%= menu_item.name %></td>
+          <td style="padding: 5px">(<%= item.qty %>)</td>
+          <td style="padding: 5px;border: 1px solid black"><%= number_to_currency(menu_item.price, unit: '$') %></td>
+        </tr>
+        <tr style="border: 1px solid black">
+        	<td colspan="2" style="padding: 5px;border: 1px solid black">Tax:</td>
+        	<td style="padding: 5px;border: 1px solid black"><%= number_to_currency(@order.cart.tax, unit: '$') %></td>
+        </tr>
+        <tr style="border: 1px solid black">
+        	<td colspan="2" style="padding: 5px;border: 1px solid black">Total:</td>
+        	<td style="padding: 5px;border: 1px solid black"><%= number_to_currency(@order.total, unit: '$') %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+
