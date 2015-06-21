@@ -7,8 +7,8 @@ class OrderMailer < ApplicationMailer
   #   en.order_mailer.order_receipt.subject
   #
   def order_receipt(order)
-    @greeting = "Hi"
+    @order = order
 
-    mail to: "to@example.org"
+    mail to: order.email , subject: "Order ##{order.id}"
   end
 end
