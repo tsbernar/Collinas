@@ -62,6 +62,7 @@ class OrdersController < ApplicationController
 	    session[:cart_id] = cart.id
 	    sync_new @order
 	  	redirect_to @order
+	  	@order.send_notification
 	  end
 	end
 

@@ -15,13 +15,18 @@ class Order < ActiveRecord::Base
 			id: id,
 			product: "Order ##{id}",
 			company: {
-				name: "Collina's",
-				address: "123 fake street",
+				name: "FoodHaus Cafe",
+				address: "2106 S Olive St, Los Angeles, CA 90007",
+				phone: "213-741-0007",
 				email: "trevor.s.bernard@gmail.com",
 				logo: Rails.root.join("app/assets/images/logo.png")
 			},
 			line_items: line_items
 			)
+	end
+
+	def send_notification
+		#todo: get email address from order, send an email with receipt
 	end
 
 	def line_items 
