@@ -1,13 +1,12 @@
-<table class="table">
+<table class="table" id="menu">
   <thead>
     <tr>
-
     </tr>
   </thead>
 
   <tbody>
     <% @menu_sections.each do |section_item| %>
-      <tr class="menu-heading ">
+      <tr class="menu-heading">
         <td colspan="6"><h4><%=section_item.name%></h4></td>
       </tr>
       <% @menu_items.each do |menu_item| %>
